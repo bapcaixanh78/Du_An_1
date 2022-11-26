@@ -32,5 +32,6 @@ namespace _1.DAL.Models
         public int Status { get; set; }
 
         public virtual ICollection<Bill> Bills { get; set; }
+        public Guid IdBill { get; set; }
     }
 }

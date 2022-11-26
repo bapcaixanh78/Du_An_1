@@ -23,7 +23,9 @@ namespace _1.DAL.Models
         public string Unit { get; set; }
 
         public virtual Producer Producer { get; set; }
+        public Guid IdProducer { get; set; }
 
         public virtual Material Material { get; set; }
+        public Guid IdMaterial { get; set; }
     }
 }
