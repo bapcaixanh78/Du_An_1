@@ -22,7 +22,7 @@ namespace _1.DAL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=MaterialWarehouseManagementProj;Persist Security Info=True;User ID=thinhvdph26886;Password=thinh22082003");
+            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=MaterialWarehouseManagementProj;Persist Security Info=True;User ID=datntph;Password=dat29082003");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
