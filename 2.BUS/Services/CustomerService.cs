@@ -23,7 +23,7 @@ namespace _2.BUS.Services
         {
             if (obj == null)
             {
-                return "Thêm thất bại";
+                return "Unsuccessful";
             }
             var KH = new Customer()
             {
@@ -35,15 +35,15 @@ namespace _2.BUS.Services
                 BirthOfDate = obj.BirthOfDate,
                 Status = obj.Status,
             };
-            if (_iCustomerRepo.Add(KH)) return "Thêm thành công";
-            return "Thêm không thành công";
+            if (_iCustomerRepo.Add(KH)) return "Successful";
+            return "Unsuccessful";
         }
 
         public string Delete(CustomerView obj)
         {
             if (obj == null)
             {
-                return "Xóa thất bại";
+                return "Unsuccessful";
             }
             var KH = new Customer()
             {
@@ -55,8 +55,8 @@ namespace _2.BUS.Services
                 BirthOfDate = obj.BirthOfDate,
                 Status = obj.Status,
             };
-            if (_iCustomerRepo.Delete(KH)) return "Xóa thành công";
-            return "Xóa không thành công";
+            if (_iCustomerRepo.Delete(KH)) return "Successful";
+            return "Unsuccessful";
         }
 
         public List<CustomerView> GetAll()
@@ -80,7 +80,7 @@ namespace _2.BUS.Services
         {
             if (obj == null)
             {
-                return "Sửa thất bại";
+                return "Unsuccessful";
             }
             var KH = new Customer()
             {
@@ -92,8 +92,8 @@ namespace _2.BUS.Services
                 BirthOfDate = obj.BirthOfDate,
                 Status = obj.Status,
             };
-            if (_iCustomerRepo.Update(KH)) return "Sửa thành công";
-            return "Sửa không thành công";
+            if (_iCustomerRepo.Update(KH)) return "Successful";
+            return "Unsuccessful";
         }
     }
 }

@@ -22,7 +22,7 @@ namespace _2.BUS.Services
         {
             if (obj == null)
             {
-                return "Thêm thất bại";
+                return "Unsuccessful";
             }
             var VL = new Material()
             {
@@ -31,15 +31,15 @@ namespace _2.BUS.Services
                 Name = obj.Name,
                 Status = obj.Status,
             };
-            if (_ImaterialRepo.Add(VL)) return "Thêm thành công";
-            return "Thêm không thành công";
+            if (_ImaterialRepo.Add(VL)) return "Successful";
+            return "Unsuccessful";
         }
 
         public string Delete(MaterialView obj)
         {
             if (obj == null)
             {
-                return "Xóa thất bại";
+                return "Unsuccessful";
             }
             var VL = new Material()
             {
@@ -48,8 +48,8 @@ namespace _2.BUS.Services
                 Name = obj.Name,
                 Status = obj.Status,
             };
-            if (_ImaterialRepo.Delete(VL)) return "Xóa thành công";
-            return "Xóa không thành công";
+            if (_ImaterialRepo.Delete(VL)) return "Successful";
+            return "Unsuccessful";
         }
 
         public List<MaterialView> GetAll()
@@ -70,7 +70,7 @@ namespace _2.BUS.Services
         {
             if (obj == null)
             {
-                return "Sửa thất bại";
+                return "Unsuccessful";
             }
             var VL = new Material()
             {
@@ -79,8 +79,8 @@ namespace _2.BUS.Services
                 Name = obj.Name,
                 Status = obj.Status,
             };
-            if (_ImaterialRepo.Update(VL)) return "Sửa thành công";
-            return "Sửa không thành công";
+            if (_ImaterialRepo.Update(VL)) return "Successful";
+            return "Unsuccessful";
         }
     }
 }
