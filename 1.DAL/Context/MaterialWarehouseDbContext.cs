@@ -22,7 +22,7 @@ namespace _1.DAL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=MaterialWarehouseManagementProj;Persist Security Info=True;User ID=PH26922;Password=tri01637126999");
+            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=MaterialWarehouseManagementProj;Persist Security Info=True;User ID=datntph;Password=dat29082003");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,9 +38,5 @@ namespace _1.DAL.Context
         public DbSet<Producer> producers { get; set; }
         public DbSet<Staff> staffs { get; set; }
         public DbSet<WareHouse> wareHouses { get; set; }
-        public DbSet<Account> accounts { get; set; }
-        public DbSet<PointsFund> pointsFunds { get; set; }
-        public DbSet<PointWallet> pointWallets { get; set; }
-        public DbSet<HistoryUsingPoints> HPoints { get; set; }
     }
 }

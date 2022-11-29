@@ -23,13 +23,8 @@ namespace _1.DAL.Models
         public DateTime ReceivedDate { get; set; }
         public int Status { get; set; }
 
-        public int PointsUsed { get; set; }
-        public virtual HistoryUsingPoints HPoints { get; set; }
-        public Guid idHPoints { get; set; }
         public virtual Customer Customer { get; set; }
-        public Guid IdCustomer { get; set; }
         public virtual Staff Staff { get; set; }
-        public Guid IdStaff { get; set; }
         public virtual ICollection<BillDetail> BillDetails { get; set; }
 
     }

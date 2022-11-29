@@ -33,9 +33,7 @@ namespace _1.DAL.Models
         public int Status { get; set; }
 
         public virtual Position Position { get; set; }
-        public Guid IdPosition { get; set; }
         public virtual WareHouse WareHouse { get; set; }
-        public Guid IdWarehouse { get; set; }
         public virtual ICollection<Bill> Bills { get; set; }
     }
 }
