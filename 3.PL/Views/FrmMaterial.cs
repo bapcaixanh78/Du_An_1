@@ -34,7 +34,7 @@ namespace _3.PL.Views
             dgrid_material.Rows.Clear();
             foreach (var x in _IMaterialService.GetAll())
             {
-                dgrid_material.Rows.Add(x.IdMaterial, x.Code, x.Name, x.Status == 1 ? "Còn hàng" : "Hết hàng");
+                dgrid_material.Rows.Add(x.IdMaterial, x.Code, x.Name, x.Status == 1 ? "Activate" : "Inactive");
             }
         }
 
@@ -53,7 +53,7 @@ namespace _3.PL.Views
         private void btn_add_Click(object sender, EventArgs e)
         {
             DialogResult hoi;
-            hoi = MessageBox.Show("Bạn có muốn thêm vật liệu này không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            hoi = MessageBox.Show("Do you want to add to this board?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
                 MessageBox.Show(_IMaterialService.Add(GetDataFromGui()));
@@ -65,7 +65,7 @@ namespace _3.PL.Views
         private void btn_update_Click(object sender, EventArgs e)
         {
             DialogResult hoi;
-            hoi = MessageBox.Show("Bạn có muốn sửa vật liệu này không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            hoi = MessageBox.Show("Do you want to edit this table?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
                 var temp = GetDataFromGui();
@@ -79,7 +79,7 @@ namespace _3.PL.Views
         private void btn_delete_Click(object sender, EventArgs e)
         {
             DialogResult hoi;
-            hoi = MessageBox.Show("Bạn có muốn xóa vật liệu này không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            hoi = MessageBox.Show("Do you want to delete this table?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
                 var temp = GetDataFromGui();
@@ -105,12 +105,12 @@ namespace _3.PL.Views
             var temp = _IMaterialService.GetAll().FirstOrDefault(c => c.IdMaterial == _id);
             txt_code.Text = temp.Code;
             txt_name.Text = temp.Name;
-            if (Convert.ToString(dgrid_material.Rows[rowIndex].Cells[3].Value) == "Hết hàng")
+            if (Convert.ToString(dgrid_material.Rows[rowIndex].Cells[3].Value) == "Activate")
             {
                 rbtn_ch.Checked = false;
                 rbtn_hh.Checked = true;
             }
-            if (Convert.ToString(dgrid_material.Rows[rowIndex].Cells[3].Value) == "Còn hàng")
+            if (Convert.ToString(dgrid_material.Rows[rowIndex].Cells[3].Value) == "Inactive")
             {
                 rbtn_ch.Checked = true;
                 rbtn_hh.Checked = false;

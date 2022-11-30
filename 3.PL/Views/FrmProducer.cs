@@ -40,7 +40,7 @@ namespace _3.PL.Views
             dgrid_producer.Rows.Clear();
             foreach (var x in _iproducerService.GetAll())
             {
-                dgrid_producer.Rows.Add(stt++, x.IdProducer, x.Code, x.Name,x.PhoneNumber,x.Adress,x.City,x.Nation,x.Status);
+                dgrid_producer.Rows.Add(stt++, x.IdProducer, x.Code, x.Name,x.PhoneNumber,x.Address,x.City,x.Nation,x.Status);
             }
         }
         private ProducerView GetDataFrom()
@@ -51,7 +51,7 @@ namespace _3.PL.Views
                 prdview.Code = txt_code.Text;
                 prdview.Name = txt_name.Text;
                 prdview.PhoneNumber = txt_phone.Text;
-                prdview.Adress = txt_adress.Text;
+                prdview.Address = txt_adress.Text;
                 prdview.City = txt_city.Text;
                 prdview.Nation = txt_nation.Text;
                 prdview.Status = Convert.ToInt32(txt_status.Text);
@@ -99,7 +99,7 @@ namespace _3.PL.Views
             txt_code.Text = obj.Code;
             txt_name.Text = obj.Name;
             txt_phone.Text = obj.PhoneNumber;
-            txt_adress.Text = obj.Adress;
+            txt_adress.Text = obj.Address;
             txt_city.Text = obj.City;
             txt_nation.Text = obj.Nation;
             txt_status.Text = Convert.ToString(obj.Status);

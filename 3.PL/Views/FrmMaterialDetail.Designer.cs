@@ -81,7 +81,7 @@
             // 
             // txt_importprice
             // 
-            this.txt_importprice.Location = new System.Drawing.Point(137, 175);
+            this.txt_importprice.Location = new System.Drawing.Point(146, 175);
             this.txt_importprice.Name = "txt_importprice";
             this.txt_importprice.Size = new System.Drawing.Size(138, 27);
             this.txt_importprice.TabIndex = 12;
@@ -102,7 +102,7 @@
             // 
             // txt_price
             // 
-            this.txt_price.Location = new System.Drawing.Point(137, 133);
+            this.txt_price.Location = new System.Drawing.Point(146, 133);
             this.txt_price.Name = "txt_price";
             this.txt_price.Size = new System.Drawing.Size(138, 27);
             this.txt_price.TabIndex = 8;
@@ -110,7 +110,7 @@
             // cmb_producer
             // 
             this.cmb_producer.FormattingEnabled = true;
-            this.cmb_producer.Location = new System.Drawing.Point(137, 88);
+            this.cmb_producer.Location = new System.Drawing.Point(146, 88);
             this.cmb_producer.Name = "cmb_producer";
             this.cmb_producer.Size = new System.Drawing.Size(138, 28);
             this.cmb_producer.TabIndex = 7;
@@ -118,7 +118,7 @@
             // cmb_material
             // 
             this.cmb_material.FormattingEnabled = true;
-            this.cmb_material.Location = new System.Drawing.Point(137, 39);
+            this.cmb_material.Location = new System.Drawing.Point(146, 39);
             this.cmb_material.Name = "cmb_material";
             this.cmb_material.Size = new System.Drawing.Size(138, 28);
             this.cmb_material.TabIndex = 6;
@@ -164,18 +164,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(32, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.Size = new System.Drawing.Size(108, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "NameNsx";
+            this.label2.Text = "NameProducer";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(36, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.Size = new System.Drawing.Size(104, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "NameVL";
+            this.label1.Text = "NameMaterial";
             // 
             // groupBox2
             // 

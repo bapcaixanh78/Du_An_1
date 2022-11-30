@@ -54,7 +54,7 @@ namespace _3.PL.Views
             }
             cmb_material.SelectedIndex = 0;
         }
-         private void LoadProducer()
+        private void LoadProducer()
         {
             foreach (var x in _iProducerService.GetAll().Select(c => c.Name))
             {
@@ -80,7 +80,7 @@ namespace _3.PL.Views
         private void btn_add_Click(object sender, EventArgs e)
         {
             DialogResult hoi;
-            hoi = MessageBox.Show("Do you want to add to this board??", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            hoi = MessageBox.Show("Do you want to add to this board?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
                 MessageBox.Show(_iMTRLDetailService.Add(GetDataFromGui()));
@@ -92,7 +92,7 @@ namespace _3.PL.Views
         private void btn_update_Click(object sender, EventArgs e)
         {
             DialogResult hoi;
-            hoi = MessageBox.Show("Do you want to edit this table?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            hoi = MessageBox.Show("Do you want to edit this table?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
                 var temp = GetDataFromGui();
@@ -106,7 +106,7 @@ namespace _3.PL.Views
         private void btn_delete_Click(object sender, EventArgs e)
         {
             DialogResult hoi;
-            hoi = MessageBox.Show("Do you want to delete this table?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            hoi = MessageBox.Show("Do you want to delete this table?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
                 var temp = GetDataFromGui();

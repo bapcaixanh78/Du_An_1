@@ -38,7 +38,7 @@ namespace _3.PL.Views
             dgrid_customer.Rows.Clear();
             foreach (var x in _iCustomerService.GetAll())
             {
-                dgrid_customer.Rows.Add(x.IdCustomer, x.Code, x.Name, x.PhoneNumber, x.Adress, x.BirthOfDate, x.Status == 1 ? "Activate" : "Inactive");
+                dgrid_customer.Rows.Add(x.IdCustomer, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Status == 1 ? "Activate" : "Inactive");
             }
         }
         public CustomerView GetDataFromGui()
@@ -49,7 +49,7 @@ namespace _3.PL.Views
                 Code = txt_code.Text,
                 Name = txt_name.Text,
                 PhoneNumber = txt_sdt.Text,
-                Adress = txt_adress.Text,
+                Address = txt_adress.Text,
                 BirthOfDate = dateTimePicker1.Value,
                 Status = rbtn_activate.Checked ? 1 : 0,
             };
@@ -59,7 +59,7 @@ namespace _3.PL.Views
         private void btn_add_Click(object sender, EventArgs e)
         {
             DialogResult hoi;
-            hoi = MessageBox.Show("Bạn có muốn thêm khách hàng này không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            hoi = MessageBox.Show("Do you want to add to this board?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
                 MessageBox.Show(_iCustomerService.Add(GetDataFromGui()));
@@ -71,7 +71,7 @@ namespace _3.PL.Views
         private void btn_update_Click(object sender, EventArgs e)
         {
             DialogResult hoi;
-            hoi = MessageBox.Show("Bạn có muốn sửa khách hàng này không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            hoi = MessageBox.Show("Do you want to edit this table?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
                 var temp = GetDataFromGui();
@@ -85,7 +85,7 @@ namespace _3.PL.Views
         private void btn_delete_Click(object sender, EventArgs e)
         {
             DialogResult hoi;
-            hoi = MessageBox.Show("Bạn có muốn xóa khách hàng này không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            hoi = MessageBox.Show("Do you want to delete this table?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
                 var temp = GetDataFromGui();
@@ -115,7 +115,7 @@ namespace _3.PL.Views
             txt_code.Text = temp.Code;
             txt_name.Text = temp.Name;
             txt_sdt.Text = temp.PhoneNumber;
-            txt_adress.Text = temp.Adress;
+            txt_adress.Text = temp.Address;
             dateTimePicker1.Value = (DateTime)temp.BirthOfDate;
             if (Convert.ToString(dgrid_customer.Rows[rowIndex].Cells[6].Value) == "Inactive")
             {
