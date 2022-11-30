@@ -25,7 +25,7 @@ namespace _1.DAL.Models
         public string PhoneNumber { get; set; }
 
         [StringLength(30)]
-        public string Adress { get; set; }
+        public string Address { get; set; }
 
         public DateTime BirthOfDate { get; set; }
 
