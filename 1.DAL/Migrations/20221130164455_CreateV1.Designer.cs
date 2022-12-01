@@ -3,21 +3,44 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1.DAL.Context;
 
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(MaterialWarehouseDbContext))]
-    partial class MaterialWarehouseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221130164455_CreateV1")]
+    partial class CreateV1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("_1.DAL.Models.Account", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Account");
+                });
 
             modelBuilder.Entity("_1.DAL.Models.Bill", b =>
                 {
@@ -109,7 +132,7 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Adress")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -158,7 +181,7 @@ namespace _1.DAL.Migrations
 
                     b.HasKey("idHPoints");
 
-                    b.ToTable("HistoryUsingPoints");
+                    b.ToTable("HPoints");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Material", b =>
@@ -261,7 +284,7 @@ namespace _1.DAL.Migrations
 
                     b.HasIndex("HPointsidHPoints");
 
-                    b.ToTable("PointWallet");
+                    b.ToTable("pointWallets");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.PointsFund", b =>
@@ -289,7 +312,7 @@ namespace _1.DAL.Migrations
 
                     b.HasIndex("HPointsidHPoints");
 
-                    b.ToTable("PointsFund");
+                    b.ToTable("pointsFunds");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Position", b =>
@@ -322,7 +345,7 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Adress")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -362,17 +385,17 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Adress")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
-
-                    b.Property<DateTime>("BirthOfDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("IdPosition")
                         .HasColumnType("uniqueidentifier");
@@ -416,7 +439,7 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Adress")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 

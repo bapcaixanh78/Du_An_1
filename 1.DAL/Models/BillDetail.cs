@@ -16,7 +16,7 @@ namespace _1.DAL.Models
 
         [Key]
         [Column(Order = 1)]
-        public Guid IdMDetail { get; set; }
+        public Guid IdMaterial { get; set; }
 
         [Required]
         [StringLength(30)]
@@ -24,8 +24,7 @@ namespace _1.DAL.Models
 
         public int Amount { get; set; }
         public Decimal Price { get; set; }
-
-        public virtual Material Material { get; set; }
-        public virtual Bill Bill { get; set; }
+        public Material Material { get; set; }
+        public Bill Bill { get; set; }
     }
 }

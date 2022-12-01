@@ -20,9 +20,9 @@ namespace _1.DAL.Models
 
         public int Status { get; set; }
 
-        public virtual ICollection<PointsFund> PFund { get; set; }
+        public ICollection<PointsFund> PFund { get; set; }
 
-        public virtual ICollection<PointWallet> PWallet { get; set; }
-        public virtual ICollection<Bill> Bills { get; set; }
+        public ICollection<PointWallet> PWallet { get; set; }
+        public ICollection<Bill> Bills { get; set; }
     }
 }

@@ -22,12 +22,12 @@ namespace _1.DAL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=MaterialWarehouseManagementProj;Persist Security Info=True;User ID=datntph;Password=dat29082003");
+            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=MaterialWarehouseManagementProj;Persist Security Info=True;User ID=PH26922;Password=tri01637126999");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BillDetail>().HasKey(e => new { e.IdMDetail, e.IdBill });
+            modelBuilder.Entity<BillDetail>().HasKey(e => new { e.IdMaterial, e.IdBill });
         }
         public DbSet<Bill> bills { get; set; }
         public DbSet<BillDetail> billDetails { get; set; }

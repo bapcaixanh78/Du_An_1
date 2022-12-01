@@ -52,7 +52,7 @@ namespace _1.DAL.Repositories
             temobj.Code = obj.Code;
             temobj.Name = obj.Name;
             temobj.PhoneNumber = obj.PhoneNumber;
-            temobj.Adress = obj.Adress;
+            temobj.Address = obj.Address;
             temobj.City = obj.City;
             temobj.Nation = obj.Nation;
             temobj.Status = obj.Status;

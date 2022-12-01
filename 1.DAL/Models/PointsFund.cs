@@ -17,7 +17,7 @@ namespace _1.DAL.Models
         public Decimal PointsUsed { get; set; }
 
         public int Status { get; set; }
-
-        public virtual HistoryUsingPoints HPoints { get; set; }
+        public Guid idHPoints { get; set; }
+        public HistoryUsingPoints HPoints { get; set; }
     }
 }
