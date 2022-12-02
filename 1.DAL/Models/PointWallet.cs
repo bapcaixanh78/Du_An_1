@@ -22,7 +22,6 @@ namespace _1.DAL.Models
 
         public Guid IdCustomer { get; set; }
         public Customer Customer { get; set; }
-        public Guid idHPoints { get; set; }
-        public HistoryUsingPoints HPoints { get; set; }
+        public ICollection<HistoryUsingPoints> HPoints { get; set; }
     }
 }
