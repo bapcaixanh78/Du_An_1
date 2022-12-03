@@ -20,6 +20,7 @@ namespace _1.DAL.Repositories
         public bool Add(Material obj)
         {
             if (obj == null) return false;
+            obj.IdMaterial = Guid.NewGuid();
             _dbContext.Materials.Add(obj);
             _dbContext.SaveChanges();
             return true;

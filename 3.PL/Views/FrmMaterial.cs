@@ -25,16 +25,18 @@ namespace _3.PL.Views
         }
         private void LoadData()
         {
-            dgrid_material.ColumnCount = 4;
-            dgrid_material.Columns[0].Name = "ID";
-            dgrid_material.Columns[0].Visible = false;
-            dgrid_material.Columns[1].Name = "Code";
-            dgrid_material.Columns[2].Name = "Name";
-            dgrid_material.Columns[3].Name = "Status";
+            int stt = 1;
+            dgrid_material.ColumnCount = 5;
+            dgrid_material.Columns[0].Name = "STT";
+            dgrid_material.Columns[1].Name = "ID";
+            dgrid_material.Columns[1].Visible = false;
+            dgrid_material.Columns[2].Name = "Code";
+            dgrid_material.Columns[3].Name = "Name";
+            dgrid_material.Columns[4].Name = "Status";
             dgrid_material.Rows.Clear();
             foreach (var x in _IMaterialService.GetAll())
             {
-                dgrid_material.Rows.Add(x.IdMaterial, x.Code, x.Name, x.Status == 1 ? "Activate" : "Inactive");
+                dgrid_material.Rows.Add(stt++,x.IdMaterial, x.Code, x.Name, x.Status == 1 ? "Activate" : "Inactive");
             }
         }
 
@@ -42,7 +44,7 @@ namespace _3.PL.Views
         {
             MaterialView vmtrl = new MaterialView()
             {
-                IdMaterial = Guid.Empty,
+                IdMaterial = _id,
                 Code = txt_code.Text,
                 Name = txt_name.Text,
                 Status = rbtn_ch.Checked ? 1 : 0,
@@ -54,7 +56,15 @@ namespace _3.PL.Views
         {
             DialogResult hoi;
             hoi = MessageBox.Show("Do you want to add to this board?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (hoi == DialogResult.Yes)
+            if (txt_code.Text == "")
+            {
+                MessageBox.Show("Please enter the code");
+            }
+            else if (_IMaterialService.GetAll().Any(x => x.Code == txt_code.Text))
+            {
+                MessageBox.Show("Code already exists");
+            }
+            else if (hoi == DialogResult.Yes)
             {
                 MessageBox.Show(_IMaterialService.Add(GetDataFromGui()));
             }
@@ -68,12 +78,15 @@ namespace _3.PL.Views
             hoi = MessageBox.Show("Do you want to edit this table?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
-                var temp = GetDataFromGui();
-                temp.IdMaterial = _id;
-                MessageBox.Show(_IMaterialService.Update(temp));
+                MessageBox.Show(_IMaterialService.Update(GetDataFromGui()));
+                LoadData();
             }
-            else return;
-            LoadData();
+            else 
+            {
+                return;
+            }
+            
+          
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -82,12 +95,15 @@ namespace _3.PL.Views
             hoi = MessageBox.Show("Do you want to delete this table?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
-                var temp = GetDataFromGui();
-                temp.IdMaterial = _id;
-                MessageBox.Show(_IMaterialService.Delete(temp));
+              
+                MessageBox.Show(_IMaterialService.Delete(GetDataFromGui()));
+                LoadData();
             }
-            else return;
-            LoadData();
+            else
+            {
+                return;
+            }
+            
         }
 
         private void btn_clear_Click(object sender, EventArgs e)
@@ -101,7 +117,8 @@ namespace _3.PL.Views
         {
             int rowIndex = e.RowIndex;
             if (rowIndex == -1 || _IMaterialService.GetAll().Count == 0) return;
-            _id = _IMaterialService.GetAll().FirstOrDefault(c => c.IdMaterial == Guid.Parse(dgrid_material.Rows[rowIndex].Cells[0].Value.ToString())).IdMaterial;
+            if (rowIndex == _IMaterialService.GetAll().Count || rowIndex == -1) return;
+            _id = Guid.Parse(dgrid_material.Rows[rowIndex].Cells[1].Value.ToString());
             var temp = _IMaterialService.GetAll().FirstOrDefault(c => c.IdMaterial == _id);
             txt_code.Text = temp.Code;
             txt_name.Text = temp.Name;

@@ -39,7 +39,10 @@ namespace _2.BUS.Services
                 Amount = obj.Amount,
                 Unit = obj.Unit,
             };
-            if (_IMTRLDetailRepo.Add(MTRLDetail)) return "Successful";
+            if (_IMTRLDetailRepo.Add(MTRLDetail)) 
+            {
+                return "Successful";
+            } 
             return "Unsuccessful";
         }
 
@@ -49,16 +52,7 @@ namespace _2.BUS.Services
             {
                 return "Unsuccessful";
             }
-            var MTRLDetail = new MaterialDetail()
-            {
-                IdMDetail = obj.IdMDetail,
-                IdMaterial = obj.IdMaterial,
-                IdProducer = obj.IdProducer,
-                Price = obj.Price,
-                ImportPrice = obj.ImportPrice,
-                Amount = obj.Amount,
-                Unit = obj.Unit,
-            };
+            var MTRLDetail = _IMTRLDetailRepo.GetAll().FirstOrDefault(c => c.IdMDetail == obj.IdMDetail);
             if (_IMTRLDetailRepo.Delete(MTRLDetail)) return "Successful";
             return "Unsuccessful"; 
         }
@@ -84,22 +78,20 @@ namespace _2.BUS.Services
             return list;
         }
 
-        public string Update(MaterialDetailView obj)
+        public string Update(MaterialDetailView obj) 
         {
             if (obj == null)
             {
                 return "Unsuccessful";
             }
-            var MTRLDetail = new MaterialDetail()
-            {
-                IdMDetail = obj.IdMDetail,
-                IdMaterial = obj.IdMaterial,
-                IdProducer = obj.IdProducer,
-                Price = obj.Price,
-                ImportPrice = obj.ImportPrice,
-                Amount = obj.Amount,
-                Unit = obj.Unit,
-            };
+            var MTRLDetail = _IMTRLDetailRepo.GetAll().FirstOrDefault(c => c.IdMDetail == obj.IdMDetail);
+            MTRLDetail.IdMDetail = obj.IdMDetail;
+            MTRLDetail.IdMaterial = obj.IdMaterial;
+            MTRLDetail.IdProducer = obj.IdProducer;
+            MTRLDetail.Price = obj.Price;
+            MTRLDetail.ImportPrice = obj.ImportPrice;
+            MTRLDetail.Amount = obj.Amount;
+            MTRLDetail.Unit = obj.Unit;           
             if (_IMTRLDetailRepo.Update(MTRLDetail)) return "Successful";
             return "Unsuccessful";
         }

@@ -19,7 +19,11 @@ namespace _1.DAL.Repositories
         }
         public bool Add(MaterialDetail obj)
         {
-            if (obj == null) return false;
+            if (obj == null)
+            {
+                return false;
+            }
+            obj.IdMDetail = Guid.NewGuid();
             _dbContext.MaterialDetails.Add(obj);
             _dbContext.SaveChanges();
             return true;

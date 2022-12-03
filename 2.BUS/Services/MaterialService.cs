@@ -41,13 +41,7 @@ namespace _2.BUS.Services
             {
                 return "Unsuccessful";
             }
-            var VL = new Material()
-            {
-                IdMaterial = obj.IdMaterial,
-                Code = obj.Code,
-                Name = obj.Name,
-                Status = obj.Status,
-            };
+            var VL = _ImaterialRepo.GetAll().FirstOrDefault(c => c.IdMaterial == obj.IdMaterial);
             if (_ImaterialRepo.Delete(VL)) return "Successful";
             return "Unsuccessful";
         }
@@ -72,13 +66,11 @@ namespace _2.BUS.Services
             {
                 return "Unsuccessful";
             }
-            var VL = new Material()
-            {
-                IdMaterial = obj.IdMaterial,
-                Code = obj.Code,
-                Name = obj.Name,
-                Status = obj.Status,
-            };
+            var VL = _ImaterialRepo.GetAll().FirstOrDefault(c => c.IdMaterial == obj.IdMaterial);
+            VL.IdMaterial = obj.IdMaterial;
+            VL.Code = obj.Code;
+            VL.Name = obj.Name;
+            VL.Status = obj.Status;
             if (_ImaterialRepo.Update(VL)) return "Successful";
             return "Unsuccessful";
         }

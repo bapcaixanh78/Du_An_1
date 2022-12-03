@@ -31,7 +31,7 @@ namespace _2.BUS.Services
                 Code = obj.Code,
                 Name = obj.Name,
                 PhoneNumber = obj.PhoneNumber,
-                Adress = obj.Adress,
+                Address = obj.Address,
                 BirthOfDate = obj.BirthOfDate,
                 Status = obj.Status,
             };
@@ -45,16 +45,7 @@ namespace _2.BUS.Services
             {
                 return "Unsuccessful";
             }
-            var KH = new Customer()
-            {
-                IdCustomer = obj.IdCustomer,
-                Code = obj.Code,
-                Name = obj.Name,
-                PhoneNumber = obj.PhoneNumber,
-                Adress = obj.Adress,
-                BirthOfDate = obj.BirthOfDate,
-                Status = obj.Status,
-            };
+            var KH = _iCustomerRepo.GetAll().FirstOrDefault(c => c.IdCustomer == obj.IdCustomer);
             if (_iCustomerRepo.Delete(KH)) return "Successful";
             return "Unsuccessful";
         }
@@ -69,7 +60,7 @@ namespace _2.BUS.Services
                           Code = n.Code,
                           Name = n.Name,
                           PhoneNumber = n.PhoneNumber,
-                          Adress = n.Adress,
+                          Address = n.Address,
                           BirthOfDate = n.BirthOfDate,
                           Status = n.Status,
                       }).ToList();
@@ -82,16 +73,14 @@ namespace _2.BUS.Services
             {
                 return "Unsuccessful";
             }
-            var KH = new Customer()
-            {
-                IdCustomer = obj.IdCustomer,
-                Code = obj.Code,
-                Name = obj.Name,
-                PhoneNumber = obj.PhoneNumber,
-                Adress = obj.Adress,
-                BirthOfDate = obj.BirthOfDate,
-                Status = obj.Status,
-            };
+            var KH = _iCustomerRepo.GetAll().FirstOrDefault(c => c.IdCustomer == obj.IdCustomer);
+            KH.IdCustomer = obj.IdCustomer;
+            KH.Code = obj.Code;
+            KH.Name = obj.Name;
+            KH.PhoneNumber = obj.PhoneNumber;
+            KH.Address = obj.Address;
+            KH.BirthOfDate = obj.BirthOfDate;
+            KH.Status = obj.Status;
             if (_iCustomerRepo.Update(KH)) return "Successful";
             return "Unsuccessful";
         }

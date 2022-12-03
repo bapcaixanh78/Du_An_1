@@ -20,6 +20,7 @@ namespace _1.DAL.Repositories
         public bool Add(Customer obj)
         {
             if (obj == null) return false;
+            obj.IdCustomer = Guid.NewGuid();
             _dbContext.Customers.Add(obj);
             _dbContext.SaveChanges();
             return true;
@@ -52,7 +53,7 @@ namespace _1.DAL.Repositories
             temp.Code = obj.Code;
             temp.Name = obj.Name;
             temp.PhoneNumber = obj.PhoneNumber;
-            temp.Adress = obj.Adress;
+            temp.Address = obj.Address;
             temp.BirthOfDate = obj.BirthOfDate;
             temp.Status = obj.Status;
             _dbContext.Update(temp);
