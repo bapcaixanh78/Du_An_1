@@ -22,6 +22,12 @@ namespace _1.DAL.Models
         public DateTime ShipDate { get; set; }
         public DateTime ReceivedDate { get; set; }
         public int Status { get; set; }
+<<<<<<< HEAD
+=======
+
+        public int PointsUsed { get; set; }
+        public ICollection<HistoryUsingPoints> HPoints { get; set; }
+>>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
         public Guid IdCustomer { get; set; }
         public Customer Customer { get; set; }
         public Guid IdStaff { get; set; }

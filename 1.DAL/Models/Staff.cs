@@ -31,6 +31,10 @@ namespace _1.DAL.Models
 
         public Decimal Wage { get; set; }
         public int Status { get; set; }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
         public Guid IdPosition { get; set; }
         public Position Position { get; set; }
         public Guid IdWareHouse { get; set; }

@@ -24,7 +24,10 @@ namespace _1.DAL.Models
 
         public int Amount { get; set; }
         public Decimal Price { get; set; }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
         public Material Material { get; set; }
         public Bill Bill { get; set; }
     }

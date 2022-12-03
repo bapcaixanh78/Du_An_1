@@ -40,7 +40,7 @@ namespace _3.PL.Views
             dgrid_staff.Rows.Clear();
             foreach (var x in _istaffService.GetAll())
             {
-                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Adress, x.DateOfBirth, x.Wage, x.Status);
+                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status);
             }
         }
         private StaffView GetDataFrom()
@@ -51,8 +51,8 @@ namespace _3.PL.Views
                 staffView.Code = txt_code.Text;
                 staffView.Name = txt_name.Text;
                 staffView.PhoneNumber = txt_phone.Text;
-                staffView.Adress = txt_adress.Text;
-                staffView.DateOfBirth = Convert.ToDateTime(dtpk_date.Text);
+                staffView.Address = txt_adress.Text;
+                staffView.BirthOfDate = Convert.ToDateTime(dtpk_date.Text);
                 staffView.Wage = Convert.ToDecimal(txt_wage.Text);
                 staffView.Status = Convert.ToInt32(txt_status.Text);
             };
@@ -84,8 +84,8 @@ namespace _3.PL.Views
             txt_code.Text = obj.Code;
             txt_name.Text = obj.Name;
             txt_phone.Text = obj.PhoneNumber;
-            txt_adress.Text = obj.Adress;
-            dtpk_date.Text = Convert.ToString(obj.DateOfBirth);
+            txt_adress.Text = obj.Address;
+            dtpk_date.Text = Convert.ToString(obj.BirthOfDate);
             txt_wage.Text = Convert.ToString(obj.Wage);
             txt_status.Text = Convert.ToString(obj.Status);
         }

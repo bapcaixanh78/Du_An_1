@@ -40,7 +40,7 @@ namespace _3.PL.Views
             dgrid_warehouse.Rows.Clear();
             foreach (var x in _iwarehouseservice.GetAll())
             {
-                dgrid_warehouse.Rows.Add(stt++, x.IdWarehouse, x.Code, x.Name, x.PhoneNumber, x.Adress, x.City, x.Nation, x.Status);
+                dgrid_warehouse.Rows.Add(stt++, x.IdWarehouse, x.Code, x.Name, x.PhoneNumber, x.Address, x.City, x.Nation, x.Status);
             }
         }
         private WareHouseView GetDataFrom()
@@ -51,7 +51,7 @@ namespace _3.PL.Views
                 wrhview.Code = txt_code.Text;
                 wrhview.Name = txt_name.Text;
                 wrhview.PhoneNumber = txt_phone.Text;
-                wrhview.Adress = txt_adress.Text;
+                wrhview.Address = txt_adress.Text;
                 wrhview.City = txt_city.Text;
                 wrhview.Nation = txt_nation.Text;
                 wrhview.Status = Convert.ToInt32(txt_status.Text);
@@ -98,7 +98,7 @@ namespace _3.PL.Views
             txt_code.Text = obj.Code;
             txt_name.Text = obj.Name;
             txt_phone.Text = obj.PhoneNumber;
-            txt_adress.Text = obj.Adress;
+            txt_adress.Text = obj.Address;
             txt_city.Text = obj.City;
             txt_nation.Text = obj.Nation;
             txt_status.Text = Convert.ToString(obj.Status);

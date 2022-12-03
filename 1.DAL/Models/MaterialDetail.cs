@@ -25,6 +25,12 @@ namespace _1.DAL.Models
         public Producer Producer { get; set; }
         public Guid IdMaterial { get; set; }
 
+<<<<<<< HEAD
+=======
+        public Guid IdProducer { get; set; }
+        public Producer Producer { get; set; }
+        public Guid IdMaterial { get; set; }
+>>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
         public Material Material { get; set; }
     }
 }

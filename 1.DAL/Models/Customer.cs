@@ -30,6 +30,7 @@ namespace _1.DAL.Models
         public DateTime BirthOfDate { get; set; }
 
         public int Status { get; set; }
+        public ICollection<PointWallet> PointWallets { get; set; }
 
         public ICollection<Bill> Bills { get; set; }
     }

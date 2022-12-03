@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1.DAL.Context;
 
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(MaterialWarehouseDbContext))]
-    partial class MaterialWarehouseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221130164455_CreateV1")]
+    partial class CreateV1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,12 +59,9 @@ namespace _1.DAL.Migrations
                     b.Property<Guid?>("CustomerIdCustomer")
                         .HasColumnType("uniqueidentifier");
 
-<<<<<<< HEAD
-                    b.Property<Guid?>("HistoryUsingPointsidHPoints")
+                    b.Property<Guid?>("HPointsidHPoints")
                         .HasColumnType("uniqueidentifier");
 
-=======
->>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
                     b.Property<Guid>("IdCustomer")
                         .HasColumnType("uniqueidentifier");
 
@@ -87,11 +86,14 @@ namespace _1.DAL.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<Guid>("idHPoints")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("IdBill");
 
                     b.HasIndex("CustomerIdCustomer");
 
-                    b.HasIndex("HistoryUsingPointsidHPoints");
+                    b.HasIndex("HPointsidHPoints");
 
                     b.HasIndex("StaffIdStaff");
 
@@ -130,7 +132,7 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Adress")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -165,33 +167,9 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-<<<<<<< HEAD
                     b.Property<DateTime>("DateUse")
                         .HasColumnType("datetime2");
 
-=======
-                    b.Property<Guid?>("BillsIdBill")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("DateUse")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("IdBill")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("IdPFund")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("IdPWallet")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("PFundIdPFund")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("PWalletIdPWallet")
-                        .HasColumnType("uniqueidentifier");
-
->>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
                     b.Property<int>("PlusPoints")
                         .HasColumnType("int");
 
@@ -203,17 +181,7 @@ namespace _1.DAL.Migrations
 
                     b.HasKey("idHPoints");
 
-<<<<<<< HEAD
                     b.ToTable("HPoints");
-=======
-                    b.HasIndex("BillsIdBill");
-
-                    b.HasIndex("PFundIdPFund");
-
-                    b.HasIndex("PWalletIdPWallet");
-
-                    b.ToTable("HistoryUsingPoints");
->>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Material", b =>
@@ -289,12 +257,9 @@ namespace _1.DAL.Migrations
                     b.Property<Guid?>("CustomerIdCustomer")
                         .HasColumnType("uniqueidentifier");
 
-<<<<<<< HEAD
                     b.Property<Guid?>("HPointsidHPoints")
                         .HasColumnType("uniqueidentifier");
 
-=======
->>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
                     b.Property<Guid>("IdCustomer")
                         .HasColumnType("uniqueidentifier");
 
@@ -310,23 +275,16 @@ namespace _1.DAL.Migrations
                     b.Property<int>("TotalScore")
                         .HasColumnType("int");
 
-<<<<<<< HEAD
                     b.Property<Guid>("idHPoints")
                         .HasColumnType("uniqueidentifier");
 
-=======
->>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
                     b.HasKey("IdPWallet");
 
                     b.HasIndex("CustomerIdCustomer");
 
-<<<<<<< HEAD
                     b.HasIndex("HPointsidHPoints");
 
                     b.ToTable("pointWallets");
-=======
-                    b.ToTable("PointWallet");
->>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
                 });
 
             modelBuilder.Entity("_1.DAL.Models.PointsFund", b =>
@@ -335,12 +293,9 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-<<<<<<< HEAD
                     b.Property<Guid?>("HPointsidHPoints")
                         .HasColumnType("uniqueidentifier");
 
-=======
->>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
                     b.Property<decimal>("PointsMoney")
                         .HasColumnType("decimal(18,2)");
 
@@ -350,7 +305,6 @@ namespace _1.DAL.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-<<<<<<< HEAD
                     b.Property<Guid>("idHPoints")
                         .HasColumnType("uniqueidentifier");
 
@@ -359,11 +313,6 @@ namespace _1.DAL.Migrations
                     b.HasIndex("HPointsidHPoints");
 
                     b.ToTable("pointsFunds");
-=======
-                    b.HasKey("IdPFund");
-
-                    b.ToTable("PointsFund");
->>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Position", b =>
@@ -396,7 +345,7 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Adress")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -436,17 +385,17 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Adress")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
-
-                    b.Property<DateTime>("BirthOfDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("IdPosition")
                         .HasColumnType("uniqueidentifier");
@@ -490,7 +439,7 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Adress")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -530,15 +479,17 @@ namespace _1.DAL.Migrations
                         .WithMany("Bills")
                         .HasForeignKey("CustomerIdCustomer");
 
-                    b.HasOne("_1.DAL.Models.HistoryUsingPoints", null)
+                    b.HasOne("_1.DAL.Models.HistoryUsingPoints", "HPoints")
                         .WithMany("Bills")
-                        .HasForeignKey("HistoryUsingPointsidHPoints");
+                        .HasForeignKey("HPointsidHPoints");
 
                     b.HasOne("_1.DAL.Models.Staff", "Staff")
                         .WithMany("Bills")
                         .HasForeignKey("StaffIdStaff");
 
                     b.Navigation("Customer");
+
+                    b.Navigation("HPoints");
 
                     b.Navigation("Staff");
                 });
@@ -562,27 +513,6 @@ namespace _1.DAL.Migrations
                     b.Navigation("Material");
                 });
 
-            modelBuilder.Entity("_1.DAL.Models.HistoryUsingPoints", b =>
-                {
-                    b.HasOne("_1.DAL.Models.Bill", "Bills")
-                        .WithMany("HPoints")
-                        .HasForeignKey("BillsIdBill");
-
-                    b.HasOne("_1.DAL.Models.PointsFund", "PFund")
-                        .WithMany("HPoints")
-                        .HasForeignKey("PFundIdPFund");
-
-                    b.HasOne("_1.DAL.Models.PointWallet", "PWallet")
-                        .WithMany("HPoints")
-                        .HasForeignKey("PWalletIdPWallet");
-
-                    b.Navigation("Bills");
-
-                    b.Navigation("PFund");
-
-                    b.Navigation("PWallet");
-                });
-
             modelBuilder.Entity("_1.DAL.Models.MaterialDetail", b =>
                 {
                     b.HasOne("_1.DAL.Models.Material", "Material")
@@ -601,8 +531,7 @@ namespace _1.DAL.Migrations
             modelBuilder.Entity("_1.DAL.Models.PointWallet", b =>
                 {
                     b.HasOne("_1.DAL.Models.Customer", "Customer")
-<<<<<<< HEAD
-                        .WithMany()
+                        .WithMany("PointWallets")
                         .HasForeignKey("CustomerIdCustomer");
 
                     b.HasOne("_1.DAL.Models.HistoryUsingPoints", "HPoints")
@@ -621,12 +550,6 @@ namespace _1.DAL.Migrations
                         .HasForeignKey("HPointsidHPoints");
 
                     b.Navigation("HPoints");
-=======
-                        .WithMany("PointWallets")
-                        .HasForeignKey("CustomerIdCustomer");
-
-                    b.Navigation("Customer");
->>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Staff", b =>
@@ -647,8 +570,6 @@ namespace _1.DAL.Migrations
             modelBuilder.Entity("_1.DAL.Models.Bill", b =>
                 {
                     b.Navigation("BillDetails");
-
-                    b.Navigation("HPoints");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Customer", b =>
@@ -672,16 +593,6 @@ namespace _1.DAL.Migrations
                     b.Navigation("BillDetails");
 
                     b.Navigation("MaterialDetails");
-                });
-
-            modelBuilder.Entity("_1.DAL.Models.PointWallet", b =>
-                {
-                    b.Navigation("HPoints");
-                });
-
-            modelBuilder.Entity("_1.DAL.Models.PointsFund", b =>
-                {
-                    b.Navigation("HPoints");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Position", b =>

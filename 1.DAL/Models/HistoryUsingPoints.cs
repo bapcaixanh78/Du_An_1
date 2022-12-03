@@ -20,9 +20,18 @@ namespace _1.DAL.Models
 
         public int Status { get; set; }
 
+<<<<<<< HEAD
         public ICollection<PointsFund> PFund { get; set; }
 
         public ICollection<PointWallet> PWallet { get; set; }
         public ICollection<Bill> Bills { get; set; }
+=======
+        public Guid IdPFund { get; set; }
+        public PointsFund PFund { get; set; }
+        public Guid IdPWallet { get; set; }
+        public PointWallet PWallet { get; set; }
+        public Guid IdBill { get; set; }
+        public Bill Bills { get; set; }
+>>>>>>> 9deba97ab4328dbfc52139d80d82547d0dbbf116
     }
 }

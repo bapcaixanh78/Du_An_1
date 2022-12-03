@@ -13,8 +13,8 @@ namespace _2.BUS.ViewModels
         public string Code { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
-        public string Adress { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string Address { get; set; }
+        public DateTime BirthOfDate { get; set; }
         public Decimal Wage { get; set; }
         public int Status { get; set; }
     }

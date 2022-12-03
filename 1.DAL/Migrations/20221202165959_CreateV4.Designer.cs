@@ -10,8 +10,8 @@ using _1.DAL.Context;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(MaterialWarehouseDbContext))]
-    [Migration("20221124083526_DA1_db")]
-    partial class DA1_db
+    [Migration("20221202165959_CreateV4")]
+    partial class CreateV4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,8 +38,17 @@ namespace _1.DAL.Migrations
                     b.Property<Guid?>("CustomerIdCustomer")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("IdCustomer")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdStaff")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("PaymentedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("PointsUsed")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ReceivedDate")
                         .HasColumnType("datetime2");
@@ -64,7 +73,7 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.Models.BillDetail", b =>
                 {
-                    b.Property<Guid>("IdMDetail")
+                    b.Property<Guid>("IdMaterial")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("IdBill")
@@ -72,9 +81,6 @@ namespace _1.DAL.Migrations
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
-
-                    b.Property<Guid?>("MaterialIdMaterial")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaterialName")
                         .IsRequired()
@@ -84,11 +90,9 @@ namespace _1.DAL.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("IdMDetail", "IdBill");
+                    b.HasKey("IdMaterial", "IdBill");
 
                     b.HasIndex("IdBill");
-
-                    b.HasIndex("MaterialIdMaterial");
 
                     b.ToTable("billDetails");
                 });
@@ -99,7 +103,7 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Address")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -126,6 +130,53 @@ namespace _1.DAL.Migrations
                     b.HasKey("IdCustomer");
 
                     b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("_1.DAL.Models.HistoryUsingPoints", b =>
+                {
+                    b.Property<Guid>("idHPoints")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("BillsIdBill")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateUse")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("IdBill")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdPFund")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdPWallet")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("PFundIdPFund")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("PWalletIdPWallet")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("PlusPoints")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PointsUsed")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("idHPoints");
+
+                    b.HasIndex("BillsIdBill");
+
+                    b.HasIndex("PFundIdPFund");
+
+                    b.HasIndex("PWalletIdPWallet");
+
+                    b.ToTable("HistoryUsingPoints");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Material", b =>
@@ -161,6 +212,12 @@ namespace _1.DAL.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
+                    b.Property<Guid>("IdMaterial")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdProducer")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<decimal>("ImportPrice")
                         .HasColumnType("decimal(18,2)");
 
@@ -184,6 +241,57 @@ namespace _1.DAL.Migrations
                     b.HasIndex("ProducerIdProducer");
 
                     b.ToTable("MaterialDetails");
+                });
+
+            modelBuilder.Entity("_1.DAL.Models.PointWallet", b =>
+                {
+                    b.Property<Guid>("IdPWallet")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CustomerIdCustomer")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdCustomer")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("PointsAdded")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PointsUsed")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalScore")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdPWallet");
+
+                    b.HasIndex("CustomerIdCustomer");
+
+                    b.ToTable("PointWallet");
+                });
+
+            modelBuilder.Entity("_1.DAL.Models.PointsFund", b =>
+                {
+                    b.Property<Guid>("IdPFund")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("PointsMoney")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PointsUsed")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdPFund");
+
+                    b.ToTable("PointsFund");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Position", b =>
@@ -216,7 +324,7 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Address")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -256,17 +364,23 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Address")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<DateTime>("BirthOfDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
+                    b.Property<Guid>("IdPosition")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdWareHouse")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -304,7 +418,7 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Address")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -363,11 +477,34 @@ namespace _1.DAL.Migrations
 
                     b.HasOne("_1.DAL.Models.Material", "Material")
                         .WithMany("BillDetails")
-                        .HasForeignKey("MaterialIdMaterial");
+                        .HasForeignKey("IdMaterial")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Bill");
 
                     b.Navigation("Material");
+                });
+
+            modelBuilder.Entity("_1.DAL.Models.HistoryUsingPoints", b =>
+                {
+                    b.HasOne("_1.DAL.Models.Bill", "Bills")
+                        .WithMany("HPoints")
+                        .HasForeignKey("BillsIdBill");
+
+                    b.HasOne("_1.DAL.Models.PointsFund", "PFund")
+                        .WithMany("HPoints")
+                        .HasForeignKey("PFundIdPFund");
+
+                    b.HasOne("_1.DAL.Models.PointWallet", "PWallet")
+                        .WithMany("HPoints")
+                        .HasForeignKey("PWalletIdPWallet");
+
+                    b.Navigation("Bills");
+
+                    b.Navigation("PFund");
+
+                    b.Navigation("PWallet");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.MaterialDetail", b =>
@@ -383,6 +520,15 @@ namespace _1.DAL.Migrations
                     b.Navigation("Material");
 
                     b.Navigation("Producer");
+                });
+
+            modelBuilder.Entity("_1.DAL.Models.PointWallet", b =>
+                {
+                    b.HasOne("_1.DAL.Models.Customer", "Customer")
+                        .WithMany("PointWallets")
+                        .HasForeignKey("CustomerIdCustomer");
+
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Staff", b =>
@@ -403,11 +549,15 @@ namespace _1.DAL.Migrations
             modelBuilder.Entity("_1.DAL.Models.Bill", b =>
                 {
                     b.Navigation("BillDetails");
+
+                    b.Navigation("HPoints");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Customer", b =>
                 {
                     b.Navigation("Bills");
+
+                    b.Navigation("PointWallets");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Material", b =>
@@ -415,6 +565,16 @@ namespace _1.DAL.Migrations
                     b.Navigation("BillDetails");
 
                     b.Navigation("MaterialDetails");
+                });
+
+            modelBuilder.Entity("_1.DAL.Models.PointWallet", b =>
+                {
+                    b.Navigation("HPoints");
+                });
+
+            modelBuilder.Entity("_1.DAL.Models.PointsFund", b =>
+                {
+                    b.Navigation("HPoints");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.Position", b =>
