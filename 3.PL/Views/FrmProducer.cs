@@ -43,6 +43,26 @@ namespace _3.PL.Views
                 dgrid_producer.Rows.Add(stt++, x.IdProducer, x.Code, x.Name,x.PhoneNumber,x.Address,x.City,x.Nation,x.Status);
             }
         }
+        private void LoadSearch(List<ProducerView> lst)
+        {
+            int stt = 1;
+            dgrid_producer.ColumnCount = 9;
+            dgrid_producer.Columns[0].Name = "STT";
+            dgrid_producer.Columns[1].Name = "ID";
+            dgrid_producer.Columns[1].Visible = false;
+            dgrid_producer.Columns[2].Name = "Code";
+            dgrid_producer.Columns[3].Name = "Name";
+            dgrid_producer.Columns[4].Name = "Phone Number";
+            dgrid_producer.Columns[5].Name = "Address";
+            dgrid_producer.Columns[6].Name = "City";
+            dgrid_producer.Columns[7].Name = "Nation";
+            dgrid_producer.Columns[8].Name = "Status";
+            dgrid_producer.Rows.Clear();
+            foreach (var x in lst)
+            {
+                dgrid_producer.Rows.Add(stt++, x.IdProducer, x.Code, x.Name, x.PhoneNumber, x.Address, x.City, x.Nation, x.Status);
+            }
+        }
         private ProducerView GetDataFrom()
         {
             ProducerView prdview = new ProducerView();
@@ -54,13 +74,14 @@ namespace _3.PL.Views
                 prdview.Address = txt_adress.Text;
                 prdview.City = txt_city.Text;
                 prdview.Nation = txt_nation.Text;
-                prdview.Status = Convert.ToInt32(txt_status.Text);
+                prdview.Status = rbtn_1.Checked ? 1 : 0;
             };
             return prdview;
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
+            var rerand = MessageBox.Show("Do you want more ?", "Notify !", MessageBoxButtons.YesNo);
             if (txt_code.Text == "")
             {
                 MessageBox.Show("Please enter the code");
@@ -69,10 +90,14 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Code already exists");
             }
-            else
+            else if(rerand == DialogResult.Yes)
             {
                 MessageBox.Show(_iproducerService.Add(GetDataFrom()));
                 LoadData();
+            }
+            else
+            {
+                return;
             }
         }
 
@@ -102,7 +127,14 @@ namespace _3.PL.Views
             txt_adress.Text = obj.Address;
             txt_city.Text = obj.City;
             txt_nation.Text = obj.Nation;
-            txt_status.Text = Convert.ToString(obj.Status);
+            if(obj.Status == 1)
+            {
+                rbtn_1.Checked = true;
+            }
+            else
+            {
+                rbtn_0.Checked = true;
+            }
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -127,8 +159,12 @@ namespace _3.PL.Views
             txt_code.Text = null;
             txt_name.Text=null;
             txt_nation.Text = null;
-            txt_phone.Text = null;
-            txt_status.Text = null;
+            txt_phone.Text = null;    
+        }
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            LoadSearch(_iproducerService.Search(txt_search.Text));
         }
     }
 }

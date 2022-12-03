@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbtn_0 = new System.Windows.Forms.RadioButton();
+            this.rbtn_1 = new System.Windows.Forms.RadioButton();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmb_warehouse = new System.Windows.Forms.ComboBox();
+            this.cmb_position = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -37,7 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_wage = new System.Windows.Forms.TextBox();
-            this.txt_status = new System.Windows.Forms.TextBox();
             this.dtpk_date = new System.Windows.Forms.DateTimePicker();
             this.txt_phone = new System.Windows.Forms.TextBox();
             this.txt_name = new System.Windows.Forms.TextBox();
@@ -49,6 +54,8 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.dgrid_staff = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -58,6 +65,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbtn_0);
+            this.groupBox1.Controls.Add(this.rbtn_1);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.cmb_warehouse);
+            this.groupBox1.Controls.Add(this.cmb_position);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -66,7 +79,6 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txt_wage);
-            this.groupBox1.Controls.Add(this.txt_status);
             this.groupBox1.Controls.Add(this.dtpk_date);
             this.groupBox1.Controls.Add(this.txt_phone);
             this.groupBox1.Controls.Add(this.txt_name);
@@ -75,10 +87,65 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(550, 293);
+            this.groupBox1.Size = new System.Drawing.Size(672, 310);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            // 
+            // rbtn_0
+            // 
+            this.rbtn_0.AutoSize = true;
+            this.rbtn_0.Location = new System.Drawing.Point(402, 263);
+            this.rbtn_0.Name = "rbtn_0";
+            this.rbtn_0.Size = new System.Drawing.Size(38, 24);
+            this.rbtn_0.TabIndex = 21;
+            this.rbtn_0.TabStop = true;
+            this.rbtn_0.Text = "0";
+            this.rbtn_0.UseVisualStyleBackColor = true;
+            // 
+            // rbtn_1
+            // 
+            this.rbtn_1.AutoSize = true;
+            this.rbtn_1.Location = new System.Drawing.Point(402, 221);
+            this.rbtn_1.Name = "rbtn_1";
+            this.rbtn_1.Size = new System.Drawing.Size(38, 24);
+            this.rbtn_1.TabIndex = 20;
+            this.rbtn_1.TabStop = true;
+            this.rbtn_1.Text = "1";
+            this.rbtn_1.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(263, 69);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(133, 20);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Name Ware House";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(263, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(105, 20);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Name Position";
+            // 
+            // cmb_warehouse
+            // 
+            this.cmb_warehouse.FormattingEnabled = true;
+            this.cmb_warehouse.Location = new System.Drawing.Point(402, 66);
+            this.cmb_warehouse.Name = "cmb_warehouse";
+            this.cmb_warehouse.Size = new System.Drawing.Size(125, 28);
+            this.cmb_warehouse.TabIndex = 17;
+            // 
+            // cmb_position
+            // 
+            this.cmb_position.FormattingEnabled = true;
+            this.cmb_position.Location = new System.Drawing.Point(402, 23);
+            this.cmb_position.Name = "cmb_position";
+            this.cmb_position.Size = new System.Drawing.Size(125, 28);
+            this.cmb_position.TabIndex = 16;
             // 
             // label8
             // 
@@ -101,7 +168,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(262, 114);
+            this.label6.Location = new System.Drawing.Point(262, 119);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 20);
             this.label6.TabIndex = 13;
@@ -145,21 +212,14 @@
             // 
             // txt_wage
             // 
-            this.txt_wage.Location = new System.Drawing.Point(376, 174);
+            this.txt_wage.Location = new System.Drawing.Point(402, 171);
             this.txt_wage.Name = "txt_wage";
             this.txt_wage.Size = new System.Drawing.Size(125, 27);
             this.txt_wage.TabIndex = 7;
             // 
-            // txt_status
-            // 
-            this.txt_status.Location = new System.Drawing.Point(376, 241);
-            this.txt_status.Name = "txt_status";
-            this.txt_status.Size = new System.Drawing.Size(125, 27);
-            this.txt_status.TabIndex = 6;
-            // 
             // dtpk_date
             // 
-            this.dtpk_date.Location = new System.Drawing.Point(376, 109);
+            this.dtpk_date.Location = new System.Drawing.Point(402, 112);
             this.dtpk_date.Name = "dtpk_date";
             this.dtpk_date.Size = new System.Drawing.Size(125, 27);
             this.dtpk_date.TabIndex = 5;
@@ -199,12 +259,11 @@
             this.groupBox2.Controls.Add(this.btn_update);
             this.groupBox2.Controls.Add(this.btn_add);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox2.Location = new System.Drawing.Point(550, 0);
+            this.groupBox2.Location = new System.Drawing.Point(672, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(250, 293);
+            this.groupBox2.Size = new System.Drawing.Size(250, 310);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
             // 
             // btn_clear
             // 
@@ -252,24 +311,43 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.txt_search);
             this.groupBox3.Controls.Add(this.dgrid_staff);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Location = new System.Drawing.Point(0, 293);
+            this.groupBox3.Location = new System.Drawing.Point(0, 310);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(800, 157);
+            this.groupBox3.Size = new System.Drawing.Size(922, 272);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(597, 26);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 20);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Search";
+            // 
+            // txt_search
+            // 
+            this.txt_search.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txt_search.Location = new System.Drawing.Point(675, 23);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(244, 27);
+            this.txt_search.TabIndex = 20;
+            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             // 
             // dgrid_staff
             // 
             this.dgrid_staff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_staff.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgrid_staff.Location = new System.Drawing.Point(3, 26);
+            this.dgrid_staff.Location = new System.Drawing.Point(3, 67);
             this.dgrid_staff.Name = "dgrid_staff";
             this.dgrid_staff.RowHeadersWidth = 51;
             this.dgrid_staff.RowTemplate.Height = 29;
-            this.dgrid_staff.Size = new System.Drawing.Size(794, 128);
+            this.dgrid_staff.Size = new System.Drawing.Size(916, 202);
             this.dgrid_staff.TabIndex = 0;
             this.dgrid_staff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_staff_CellClick);
             // 
@@ -277,7 +355,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(922, 582);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -287,6 +365,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_staff)).EndInit();
             this.ResumeLayout(false);
 
@@ -315,6 +394,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_wage;
-        private System.Windows.Forms.TextBox txt_status;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmb_warehouse;
+        private System.Windows.Forms.ComboBox cmb_position;
+        private System.Windows.Forms.RadioButton rbtn_0;
+        private System.Windows.Forms.RadioButton rbtn_1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txt_search;
     }
 }

@@ -34,12 +34,15 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.dgrid_position = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txt_status = new System.Windows.Forms.TextBox();
+            this.rbtn_0 = new System.Windows.Forms.RadioButton();
+            this.rbtn_1 = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txt_name = new System.Windows.Forms.TextBox();
             this.txt_code = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -55,12 +58,11 @@
             this.groupBox1.Controls.Add(this.btn_update);
             this.groupBox1.Controls.Add(this.btn_add);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(565, 0);
+            this.groupBox1.Location = new System.Drawing.Point(703, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 260);
+            this.groupBox1.Size = new System.Drawing.Size(254, 265);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // btn_clear
             // 
@@ -108,96 +110,130 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.txt_search);
             this.groupBox2.Controls.Add(this.dgrid_position);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 260);
+            this.groupBox2.Location = new System.Drawing.Point(0, 265);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(819, 125);
+            this.groupBox2.Size = new System.Drawing.Size(957, 222);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(633, 26);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 20);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Search";
+            // 
+            // txt_search
+            // 
+            this.txt_search.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txt_search.Location = new System.Drawing.Point(710, 23);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(244, 27);
+            this.txt_search.TabIndex = 22;
+            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             // 
             // dgrid_position
             // 
             this.dgrid_position.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_position.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgrid_position.Location = new System.Drawing.Point(3, 0);
+            this.dgrid_position.Location = new System.Drawing.Point(3, 56);
             this.dgrid_position.Name = "dgrid_position";
             this.dgrid_position.RowHeadersWidth = 51;
             this.dgrid_position.RowTemplate.Height = 29;
-            this.dgrid_position.Size = new System.Drawing.Size(813, 122);
+            this.dgrid_position.Size = new System.Drawing.Size(951, 163);
             this.dgrid_position.TabIndex = 0;
             this.dgrid_position.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_position_CellClick);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.txt_status);
+            this.groupBox3.Controls.Add(this.rbtn_0);
+            this.groupBox3.Controls.Add(this.rbtn_1);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.txt_name);
             this.groupBox3.Controls.Add(this.txt_code);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(565, 260);
+            this.groupBox3.Size = new System.Drawing.Size(703, 265);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
             // 
-            // button3
+            // rbtn_0
             // 
-            this.button3.Location = new System.Drawing.Point(6, 188);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 29);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Status";
-            this.button3.UseVisualStyleBackColor = true;
+            this.rbtn_0.AutoSize = true;
+            this.rbtn_0.Location = new System.Drawing.Point(214, 189);
+            this.rbtn_0.Name = "rbtn_0";
+            this.rbtn_0.Size = new System.Drawing.Size(38, 24);
+            this.rbtn_0.TabIndex = 28;
+            this.rbtn_0.TabStop = true;
+            this.rbtn_0.Text = "0";
+            this.rbtn_0.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // rbtn_1
             // 
-            this.button2.Location = new System.Drawing.Point(6, 120);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Name";
-            this.button2.UseVisualStyleBackColor = true;
+            this.rbtn_1.AutoSize = true;
+            this.rbtn_1.Location = new System.Drawing.Point(130, 187);
+            this.rbtn_1.Name = "rbtn_1";
+            this.rbtn_1.Size = new System.Drawing.Size(38, 24);
+            this.rbtn_1.TabIndex = 27;
+            this.rbtn_1.TabStop = true;
+            this.rbtn_1.Text = "1";
+            this.rbtn_1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // label3
             // 
-            this.button1.Location = new System.Drawing.Point(6, 59);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Code";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(35, 191);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 20);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Status";
             // 
-            // txt_status
+            // label2
             // 
-            this.txt_status.Location = new System.Drawing.Point(130, 188);
-            this.txt_status.Name = "txt_status";
-            this.txt_status.Size = new System.Drawing.Size(125, 27);
-            this.txt_status.TabIndex = 2;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(35, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 20);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 20);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Code";
             // 
             // txt_name
             // 
             this.txt_name.Location = new System.Drawing.Point(130, 120);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(125, 27);
+            this.txt_name.Size = new System.Drawing.Size(239, 27);
             this.txt_name.TabIndex = 1;
             // 
             // txt_code
             // 
             this.txt_code.Location = new System.Drawing.Point(130, 60);
             this.txt_code.Name = "txt_code";
-            this.txt_code.Size = new System.Drawing.Size(125, 27);
+            this.txt_code.Size = new System.Drawing.Size(239, 27);
             this.txt_code.TabIndex = 0;
             // 
             // FrmPosition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 385);
+            this.ClientSize = new System.Drawing.Size(957, 487);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -205,6 +241,7 @@
             this.Text = "FrmPosition";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_position)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -224,9 +261,12 @@
         private System.Windows.Forms.DataGridView dgrid_position;
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.TextBox txt_code;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txt_status;
+        private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rbtn_1;
+        private System.Windows.Forms.RadioButton rbtn_0;
     }
 }

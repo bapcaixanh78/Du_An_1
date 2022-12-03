@@ -17,30 +17,78 @@ namespace _3.PL.Views
     {
         Guid _id;
         IStaffService _istaffService;
+        IPositionService _ipositionService;
+        IWareHouseService _iwareHouseService;
         public FrmStaff()
         {
             InitializeComponent();
             _istaffService = new StaffService();
+            _ipositionService = new PositionService();
+            _iwareHouseService = new WareHouseService();
             LoadData();
+            LoadPosition();
+            LoadWareHouse();
+        }
+        private void LoadWareHouse()
+        {
+            cmb_warehouse.Items.Clear();
+            foreach (var x in _iwareHouseService.GetAll())
+            {
+                cmb_warehouse.Items.Add(x.Name);
+            }
+            cmb_warehouse.SelectedIndex = 0;
+        }
+        private void LoadPosition()
+        {
+            cmb_position.Items.Clear();
+            foreach (var x in _ipositionService.GetAll())
+            {
+                cmb_position.Items.Add(x.Name);
+            }
+            cmb_position.SelectedIndex = 0;
         }
         private void LoadData()
         {
             int stt = 1;
-            dgrid_staff.ColumnCount = 9;
+            dgrid_staff.ColumnCount = 11;
             dgrid_staff.Columns[0].Name = "STT";
             dgrid_staff.Columns[1].Name = "ID";
             dgrid_staff.Columns[1].Visible = false;
             dgrid_staff.Columns[2].Name = "Code";
             dgrid_staff.Columns[3].Name = "Name";
             dgrid_staff.Columns[4].Name = "Phone Number";
-            dgrid_staff.Columns[5].Name = "Adress";
-            dgrid_staff.Columns[6].Name = "Date Of Birth";
-            dgrid_staff.Columns[7].Name = "Ware";
+            dgrid_staff.Columns[5].Name = "Address";
+            dgrid_staff.Columns[6].Name = "Birth of Date";
+            dgrid_staff.Columns[7].Name = "Wage";
             dgrid_staff.Columns[8].Name = "Status";
+            dgrid_staff.Columns[9].Name = "Name Position";
+            dgrid_staff.Columns[10].Name = "Name Ware House";
             dgrid_staff.Rows.Clear();
             foreach (var x in _istaffService.GetAll())
             {
-                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status);
+                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status, x.NamePosition, x.NameWareHouse);
+            }
+        }
+        private void LoadSearch(List<StaffView> lst)
+        {
+            int stt = 1;
+            dgrid_staff.ColumnCount = 11;
+            dgrid_staff.Columns[0].Name = "STT";
+            dgrid_staff.Columns[1].Name = "ID";
+            dgrid_staff.Columns[1].Visible = false;
+            dgrid_staff.Columns[2].Name = "Code";
+            dgrid_staff.Columns[3].Name = "Name";
+            dgrid_staff.Columns[4].Name = "Phone Number";
+            dgrid_staff.Columns[5].Name = "Address";
+            dgrid_staff.Columns[6].Name = "Birth of Date";
+            dgrid_staff.Columns[7].Name = "Wage";
+            dgrid_staff.Columns[8].Name = "Status";
+            dgrid_staff.Columns[9].Name = "Name Position";
+            dgrid_staff.Columns[10].Name = "Name Ware House";
+            dgrid_staff.Rows.Clear();
+            foreach (var x in lst)
+            {
+                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status, x.NamePosition, x.NameWareHouse);
             }
         }
         private StaffView GetDataFrom()
@@ -54,12 +102,15 @@ namespace _3.PL.Views
                 staffView.Address = txt_adress.Text;
                 staffView.BirthOfDate = Convert.ToDateTime(dtpk_date.Text);
                 staffView.Wage = Convert.ToDecimal(txt_wage.Text);
-                staffView.Status = Convert.ToInt32(txt_status.Text);
+                staffView.Status = rbtn_1.Checked ? 1 : 0;
+                staffView.IdPosition = _ipositionService.GetAll()[cmb_position.SelectedIndex].IdPosition;
+                staffView.IdWareHouse = _iwareHouseService.GetAll()[cmb_warehouse.SelectedIndex].IdWarehouse;   
             };
             return staffView;
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
+            var rerand = MessageBox.Show("Do you want more ?", "Notify !", MessageBoxButtons.YesNo);
             if (txt_code.Text == "")
             {
                 MessageBox.Show("Please enter the code");
@@ -68,10 +119,14 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Code already exists");
             }
-            else
+            else if (rerand == DialogResult.Yes)
             {
                 MessageBox.Show(_istaffService.Add(GetDataFrom()));
                 LoadData();
+            }
+            else
+            {
+                return;
             }
         }
 
@@ -87,7 +142,16 @@ namespace _3.PL.Views
             txt_adress.Text = obj.Address;
             dtpk_date.Text = Convert.ToString(obj.BirthOfDate);
             txt_wage.Text = Convert.ToString(obj.Wage);
-            txt_status.Text = Convert.ToString(obj.Status);
+            if(obj.Status == 1)
+            {
+                rbtn_1.Checked = true;
+            }
+            else
+            {
+                rbtn_0.Checked = true;
+            }
+            cmb_position.SelectedItem = obj.NamePosition;
+            cmb_warehouse.SelectedItem = obj.NameWareHouse;
         }
 
         private void btn_update_Click(object sender, EventArgs e)
@@ -125,8 +189,12 @@ namespace _3.PL.Views
             txt_name.Text = null;
             txt_phone.Text = null;
             txt_wage.Text = null;
-            txt_status.Text = null;
             dtpk_date.Text = null;
+        }
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            LoadSearch(_istaffService.Search(txt_search.Text));
         }
     }
 }

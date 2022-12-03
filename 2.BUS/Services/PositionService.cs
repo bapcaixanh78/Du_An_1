@@ -29,7 +29,7 @@ namespace _2.BUS.Services
                 Status = obj.Status,
             };
             if (_iPositionRepository.Add(position)) return "Successful";
-            return "Successful";
+            return "Unsuccessful";
         }
 
         public string Delete(PositionView obj)
@@ -55,6 +55,11 @@ namespace _2.BUS.Services
                 }).ToList();
             //Để hiển thị sản phẩm thì có càng nhiều bảng tham gia thì join vào càng nhiều
             return lstPstViews;
+        }
+
+        public List<PositionView> Search(string input)
+        {
+            return GetAll().Where(c => c.Code.ToLower().StartsWith(input.ToLower()) || c.Name.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
         public string Update(PositionView obj)

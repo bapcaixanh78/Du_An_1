@@ -34,6 +34,8 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,10 +48,11 @@
             this.txt_adress = new System.Windows.Forms.TextBox();
             this.txt_city = new System.Windows.Forms.TextBox();
             this.txt_nation = new System.Windows.Forms.TextBox();
-            this.txt_status = new System.Windows.Forms.TextBox();
             this.txt_code = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgrid_warehouse = new System.Windows.Forms.DataGridView();
+            this.rbtn_1 = new System.Windows.Forms.RadioButton();
+            this.rbtn_0 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -63,12 +66,11 @@
             this.groupBox1.Controls.Add(this.btn_update);
             this.groupBox1.Controls.Add(this.btn_add);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(580, 0);
+            this.groupBox1.Location = new System.Drawing.Point(772, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(220, 325);
+            this.groupBox1.Size = new System.Drawing.Size(220, 321);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // btn_clear
             // 
@@ -116,6 +118,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rbtn_0);
+            this.groupBox2.Controls.Add(this.rbtn_1);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
@@ -128,15 +132,31 @@
             this.groupBox2.Controls.Add(this.txt_adress);
             this.groupBox2.Controls.Add(this.txt_city);
             this.groupBox2.Controls.Add(this.txt_nation);
-            this.groupBox2.Controls.Add(this.txt_status);
             this.groupBox2.Controls.Add(this.txt_code);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(580, 325);
+            this.groupBox2.Size = new System.Drawing.Size(772, 321);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(691, 26);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 20);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Search";
+            // 
+            // txt_search
+            // 
+            this.txt_search.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txt_search.Location = new System.Drawing.Point(775, 23);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(214, 27);
+            this.txt_search.TabIndex = 14;
+            this.txt_search.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label7
             // 
@@ -168,7 +188,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(298, 180);
+            this.label4.Location = new System.Drawing.Point(303, 195);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 20);
             this.label4.TabIndex = 10;
@@ -236,13 +256,6 @@
             this.txt_nation.Size = new System.Drawing.Size(125, 27);
             this.txt_nation.TabIndex = 2;
             // 
-            // txt_status
-            // 
-            this.txt_status.Location = new System.Drawing.Point(424, 173);
-            this.txt_status.Name = "txt_status";
-            this.txt_status.Size = new System.Drawing.Size(125, 27);
-            this.txt_status.TabIndex = 1;
-            // 
             // txt_code
             // 
             this.txt_code.Location = new System.Drawing.Point(115, 26);
@@ -252,32 +265,55 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txt_search);
             this.groupBox3.Controls.Add(this.dgrid_warehouse);
+            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Location = new System.Drawing.Point(0, 325);
+            this.groupBox3.Location = new System.Drawing.Point(0, 321);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(800, 125);
+            this.groupBox3.Size = new System.Drawing.Size(992, 276);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
             // 
             // dgrid_warehouse
             // 
             this.dgrid_warehouse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_warehouse.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgrid_warehouse.Location = new System.Drawing.Point(3, 19);
+            this.dgrid_warehouse.Location = new System.Drawing.Point(3, 75);
             this.dgrid_warehouse.Name = "dgrid_warehouse";
             this.dgrid_warehouse.RowHeadersWidth = 51;
             this.dgrid_warehouse.RowTemplate.Height = 29;
-            this.dgrid_warehouse.Size = new System.Drawing.Size(794, 103);
+            this.dgrid_warehouse.Size = new System.Drawing.Size(986, 198);
             this.dgrid_warehouse.TabIndex = 0;
             this.dgrid_warehouse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_warehouse_CellClick);
+            // 
+            // rbtn_1
+            // 
+            this.rbtn_1.AutoSize = true;
+            this.rbtn_1.Location = new System.Drawing.Point(424, 169);
+            this.rbtn_1.Name = "rbtn_1";
+            this.rbtn_1.Size = new System.Drawing.Size(38, 24);
+            this.rbtn_1.TabIndex = 21;
+            this.rbtn_1.TabStop = true;
+            this.rbtn_1.Text = "1";
+            this.rbtn_1.UseVisualStyleBackColor = true;
+            // 
+            // rbtn_0
+            // 
+            this.rbtn_0.AutoSize = true;
+            this.rbtn_0.Location = new System.Drawing.Point(424, 199);
+            this.rbtn_0.Name = "rbtn_0";
+            this.rbtn_0.Size = new System.Drawing.Size(38, 24);
+            this.rbtn_0.TabIndex = 22;
+            this.rbtn_0.TabStop = true;
+            this.rbtn_0.Text = "0";
+            this.rbtn_0.UseVisualStyleBackColor = true;
             // 
             // FrmWareHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(992, 597);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -287,6 +323,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_warehouse)).EndInit();
             this.ResumeLayout(false);
 
@@ -315,6 +352,9 @@
         private System.Windows.Forms.TextBox txt_adress;
         private System.Windows.Forms.TextBox txt_city;
         private System.Windows.Forms.TextBox txt_nation;
-        private System.Windows.Forms.TextBox txt_status;
+        private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton rbtn_1;
+        private System.Windows.Forms.RadioButton rbtn_0;
     }
 }

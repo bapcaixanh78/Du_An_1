@@ -13,5 +13,7 @@ namespace _2.BUS.IServices
         string Update(ProducerView obj);
         string Delete(ProducerView obj);
         List<ProducerView> GetAll();
+        List<ProducerView> Search(string input);
+
     }
 }
