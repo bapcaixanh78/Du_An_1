@@ -27,8 +27,8 @@ namespace _2.BUS.Services
                 Code = obj.Code,
                 Name = obj.Name,
                 PhoneNumber = obj.PhoneNumber,
-                Adress = obj.Adress,
-                DateOfBirth = obj.DateOfBirth,
+                Address = obj.Adress,
+                BirthOfDate = obj.DateOfBirth,
                 Wage = obj.Wage,
                 Status = obj.Status,
             };
@@ -56,8 +56,8 @@ namespace _2.BUS.Services
                     Code = e.Code,
                     Name = e.Name,
                     PhoneNumber = e.PhoneNumber,
-                    Adress = e.Adress,
-                    DateOfBirth = e.DateOfBirth,
+                    Adress = e.Address,
+                    DateOfBirth = e.BirthOfDate,
                     Wage = e.Wage,
                     Status = e.Status,
                 }).ToList();
@@ -73,8 +73,8 @@ namespace _2.BUS.Services
             staff.Code = obj.Code;
             staff.Name = obj.Name;
             staff.PhoneNumber = obj.PhoneNumber;
-            staff.Adress = obj.Adress;
-            staff.DateOfBirth = obj.DateOfBirth;
+            staff.Address = obj.Adress;
+            staff.BirthOfDate = obj.DateOfBirth;
             staff.Wage = obj.Wage;
             staff.Status = obj.Status;
             if (_iStaffRepository.Update(staff))

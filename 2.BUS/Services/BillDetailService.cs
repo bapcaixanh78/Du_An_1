@@ -27,7 +27,7 @@ namespace _2.BUS.Services
         public string Delete(BillDetail bill)
         {
             if (bill == null) return "Xóa thất bại";
-            var temp = _billDetail.GetAll().FirstOrDefault(c => c.IdMDetail == bill.IdMDetail);
+            var temp = _billDetail.GetAll().FirstOrDefault(c => c.IdMaterial == bill.IdMaterial);
             if (_billDetail.Delete(temp)) return "Xóa thành công";
             return "Xóa thành công";
         }
@@ -45,7 +45,7 @@ namespace _2.BUS.Services
         public string Update(BillDetail bill)
         {
             if (bill == null) return "Thêm thất bại";
-            var temp = _billDetail.GetAll().FirstOrDefault(c => c.IdMDetail == bill.IdMDetail);
+            var temp = _billDetail.GetAll().FirstOrDefault(c => c.IdMaterial == bill.IdMaterial);
             temp.MaterialName = bill.MaterialName;
             temp.Price = bill.Price;
             temp.Amount = bill.Amount;

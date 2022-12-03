@@ -37,16 +37,12 @@ namespace _2.BUS.Services
             return "Xóa thành công";
         }
 
-        public List<BillView> GetAll(string input)
-        {
-            throw new NotImplementedException();
-        }
 
         public List<BillView> GetAll()
         {
             var list = (from a in _BillRepo.GetAll()
                         join b in _billDetailRepo.GetAll() on a.IdBill equals b.IdBill
-                        join c in _StaffRepository.GetAll() on a.Staff.IdStaff equals c.IdStaff 
+                        join c in _StaffRepository.GetAll() on a.IdStaff equals c.IdStaff 
                         select new BillView
                         {
                             IdBill = a.IdBill,
@@ -68,6 +64,16 @@ namespace _2.BUS.Services
             var temp = _BillRepo.GetAll().FirstOrDefault(c => c.IdBill == bill.IdBill);
             if (_BillRepo.Delete(temp)) return "Xóa thành công";
             return "Xóa thành công";
+        }
+
+        public List<BillView> GetAll(string input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Bill> GetFromData()
+        {
+            return _BillRepo.GetAll();
         }
     }
 }

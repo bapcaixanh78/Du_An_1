@@ -51,8 +51,8 @@ namespace _1.DAL.Repositories
             temobj.Code = obj.Code;
             temobj.Name = obj.Name;
             temobj.PhoneNumber = obj.PhoneNumber;
-            temobj.Adress = obj.Adress;
-            temobj.DateOfBirth = obj.DateOfBirth;
+            temobj.Address = obj.Address;
+            temobj.BirthOfDate = obj.BirthOfDate;
             temobj.Wage = obj.Wage;
             temobj.Status = obj.Status;
             _dbContext.Update(temobj);

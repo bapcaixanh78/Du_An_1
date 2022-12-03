@@ -25,15 +25,16 @@ namespace _1.DAL.Models
         public string PhoneNumber { get; set; }
 
         [StringLength(30)]
-        public string Adress { get; set; }
+        public string Address { get; set; }
 
-        public DateTime DateOfBirth { get; set; }
+        public DateTime BirthOfDate { get; set; }
 
         public Decimal Wage { get; set; }
         public int Status { get; set; }
-
-        public virtual Position Position { get; set; }
-        public virtual WareHouse WareHouse { get; set; }
-        public virtual ICollection<Bill> Bills { get; set; }
+        public Guid IdPosition { get; set; }
+        public Position Position { get; set; }
+        public Guid IdWareHouse { get; set; }
+        public WareHouse WareHouse { get; set; }
+        public ICollection<Bill> Bills { get; set; }
     }
 }

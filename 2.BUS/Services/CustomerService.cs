@@ -31,7 +31,7 @@ namespace _2.BUS.Services
                 Code = obj.Code,
                 Name = obj.Name,
                 PhoneNumber = obj.PhoneNumber,
-                Adress = obj.Adress,
+                Address = obj.Adress,
                 BirthOfDate = obj.BirthOfDate,
                 Status = obj.Status,
             };
@@ -51,7 +51,7 @@ namespace _2.BUS.Services
                 Code = obj.Code,
                 Name = obj.Name,
                 PhoneNumber = obj.PhoneNumber,
-                Adress = obj.Adress,
+                Address = obj.Adress,
                 BirthOfDate = obj.BirthOfDate,
                 Status = obj.Status,
             };
@@ -69,7 +69,7 @@ namespace _2.BUS.Services
                           Code = n.Code,
                           Name = n.Name,
                           PhoneNumber = n.PhoneNumber,
-                          Adress = n.Adress,
+                          Adress = n.Address,
                           BirthOfDate = n.BirthOfDate,
                           Status = n.Status,
                       }).ToList();
@@ -88,7 +88,7 @@ namespace _2.BUS.Services
                 Code = obj.Code,
                 Name = obj.Name,
                 PhoneNumber = obj.PhoneNumber,
-                Adress = obj.Adress,
+                Address = obj.Adress,
                 BirthOfDate = obj.BirthOfDate,
                 Status = obj.Status,
             };

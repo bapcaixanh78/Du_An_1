@@ -23,6 +23,6 @@ namespace _1.DAL.Models
 
         public int Status { get; set; }
 
-        public virtual ICollection<Staff> Staffs { get; set; }
+        public ICollection<Staff> Staffs { get; set; }
     }
 }

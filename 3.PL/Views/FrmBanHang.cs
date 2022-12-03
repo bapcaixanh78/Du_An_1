@@ -33,6 +33,7 @@ namespace _3.PL.Views
             _material = new MaterialService();
             _materialDetail = new MaterialDetailService();
             _lstOrder = new List<OrderView>();
+            _hdCho = new Bill();
             LoadGioHang();
             LoadSanPham();
             LoadHdCho();
@@ -56,15 +57,19 @@ namespace _3.PL.Views
         void LoadSanPham()
         {
             int stt = 1;
-            dgrid_SP.ColumnCount = 5;
+            dgrid_SP.ColumnCount = 6;
             dgrid_SP.Columns[0].Name = "STT";
-            dgrid_SP.Columns[1].Name = "Name";
-            dgrid_SP.Columns[2].Name = "Producer";
-            dgrid_SP.Columns[3].Name = "Quanlity";
-            dgrid_SP.Columns[4].Name = "Price";
-            foreach (var x in _materialDetail.GetAll())
+            dgrid_SP.Columns[1].Name = "Code";
+            dgrid_SP.Columns[2].Name = "Name";
+            dgrid_SP.Columns[3].Name = "Producer";
+            dgrid_SP.Columns[4].Name = "Quanlity";
+            dgrid_SP.Columns[5].Name = "Price";
+            dgrid_SP.Rows.Clear();
+            var list = _materialDetail.GetAll();
+            list = list.OrderBy(c => c.Code).ToList();
+            foreach (var x in list)
             {
-                dgrid_SP.Rows.Add(stt++, x.Name, x.Producer, x.Quanlity, x.Price);
+                dgrid_SP.Rows.Add(stt++,x.Code, x.Name, x.Producer, x.Quanlity, x.Price);
             }
         }
         void LoadHdCho()
@@ -143,7 +148,7 @@ namespace _3.PL.Views
                     var hdct = new BillDetail() 
                     { 
                         IdBill = hoadon.IdBill,
-                        IdMDetail = x.IdMDetail,
+                        IdMaterial = x.IdMDetail,
                         Amount = x.Quanlity,
                         Price = x.Price,
                         

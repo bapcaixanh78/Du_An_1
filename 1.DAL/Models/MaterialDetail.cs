@@ -21,9 +21,10 @@ namespace _1.DAL.Models
 
         [StringLength(20)]
         public string Unit { get; set; }
+        public Guid IdProducer { get; set; }
+        public Producer Producer { get; set; }
+        public Guid IdMaterial { get; set; }
 
-        public virtual Producer Producer { get; set; }
-
-        public virtual Material Material { get; set; }
+        public Material Material { get; set; }
     }
 }

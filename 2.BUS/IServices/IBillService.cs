@@ -13,6 +13,7 @@ namespace _2.BUS.IServices
         public string Add(Bill bill);
         public string Update(Bill bill);
         public List<BillView> GetAll();
+        public List<Bill> GetFromData();
         public List<BillView> GetAll(string input);
         public string Delete(Bill bill);
     }

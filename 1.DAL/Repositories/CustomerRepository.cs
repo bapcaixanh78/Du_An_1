@@ -52,7 +52,7 @@ namespace _1.DAL.Repositories
             temp.Code = obj.Code;
             temp.Name = obj.Name;
             temp.PhoneNumber = obj.PhoneNumber;
-            temp.Adress = obj.Adress;
+            temp.Address = obj.Address;
             temp.BirthOfDate = obj.BirthOfDate;
             temp.Status = obj.Status;
             _dbContext.Update(temp);

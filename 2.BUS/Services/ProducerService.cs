@@ -28,7 +28,7 @@ namespace _2.BUS.Services
                 Code = obj.Code,
                 Name = obj.Name,
                 PhoneNumber = obj.PhoneNumber,
-                Adress = obj.Adress,
+                Address = obj.Adress,
                 City = obj.City,
                 Nation = obj.Nation,
                 Status = obj.Status,
@@ -57,7 +57,7 @@ namespace _2.BUS.Services
                     Code = e.Code,
                     Name = e.Name,
                     PhoneNumber = e.PhoneNumber,
-                    Adress = e.Adress,
+                    Adress = e.Address,
                     City = e.City,
                     Nation = e.Nation,
                     Status = e.Status,
@@ -74,7 +74,7 @@ namespace _2.BUS.Services
             prd.Code = obj.Code;
             prd.Name = obj.Name;
             prd.PhoneNumber = obj.PhoneNumber;
-            prd.Adress = obj.Adress;
+            prd.Address = obj.Adress;
             prd.City = obj.City;
             prd.Nation = obj.Nation;
             prd.Status = obj.Status;

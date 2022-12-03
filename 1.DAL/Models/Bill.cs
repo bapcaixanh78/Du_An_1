@@ -22,10 +22,11 @@ namespace _1.DAL.Models
         public DateTime ShipDate { get; set; }
         public DateTime ReceivedDate { get; set; }
         public int Status { get; set; }
-
-        public virtual Customer Customer { get; set; }
-        public virtual Staff Staff { get; set; }
-        public virtual ICollection<BillDetail> BillDetails { get; set; }
+        public Guid IdCustomer { get; set; }
+        public Customer Customer { get; set; }
+        public Guid IdStaff { get; set; }
+        public Staff Staff { get; set; }
+        public ICollection<BillDetail> BillDetails { get; set; }
 
     }
 }

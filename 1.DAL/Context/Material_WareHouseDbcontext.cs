@@ -27,7 +27,7 @@ namespace _1.DAL.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BillDetail>().HasKey(e => new { e.IdMDetail, e.IdBill });
+            modelBuilder.Entity<BillDetail>().HasKey(e => new { e.IdMaterial, e.IdBill });
         }
         public DbSet<Bill> bills { get; set; }
         public DbSet<BillDetail> billDetails { get; set; }
@@ -38,5 +38,9 @@ namespace _1.DAL.Context
         public DbSet<Producer> producers { get; set; }
         public DbSet<Staff> staffs { get; set; }
         public DbSet<WareHouse> wareHouses { get; set; }
+        public DbSet<Account> accounts { get; set; }
+        public DbSet<PointsFund> pointsFunds { get; set; }
+        public DbSet<PointWallet> pointWallets { get; set; }
+        public DbSet<HistoryUsingPoints> HPoints { get; set; }
     }
 }

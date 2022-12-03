@@ -15,11 +15,13 @@ namespace _2.BUS.Services
         private IMaterialRepository _material;
         private IMaterialDetailRepository _materialRepository;
         private IProducerRepository _producerRepository;
+        private List<MaterialDetailView> _lstSp;
         public MaterialDetailService()
         {
             _material = new MaterialRepository();
             _materialRepository = new MaterialDeatilRepository();
             _producerRepository = new ProducerRepository();
+            _lstSp = new List<MaterialDetailView>();
         }
         public string Add(MaterialDetailView material)
         {
@@ -33,21 +35,22 @@ namespace _2.BUS.Services
 
         public List<MaterialDetailView> GetAll()
         {
-            var list = (from a in _material.GetAll()
-                        join b in _materialRepository.GetAll() on a.IdMaterial equals b.Material.IdMaterial
-                        join c in _producerRepository.GetAll() on b.Producer.IdProducer equals c.IdProducer
-                        select new MaterialDetailView()
+            _lstSp = (from a in _materialRepository.GetAll()
+                        join b in _material.GetAll() on a.IdMaterial equals b.IdMaterial
+                        join c in _producerRepository.GetAll() on a.IdProducer equals c.IdProducer
+                        select new MaterialDetailView
                         {
-                            IdMaterial = b.IdMDetail,
-                            IdMDetail = b.IdMDetail,
-                            Code = a.Code,
-                            Name = a.Name,
-                            Status = a.Status,
-                            Quanlity = b.Amount,
-                            Price = b.Price,      
-                            Producer = c.Name
+                            IdMaterial = a.IdMaterial,
+                            Status = b.Status,
+                            Code = b.Code,
+                            Name = b.Name,
+                            IdMDetail = a.IdMDetail,
+                            Price = a.Price,
+                            Quanlity = a.Amount,
+                            Producer = c.Name,
+                            
                         }).ToList();
-            return list;
+            return _lstSp;
         }
 
         public string Update(MaterialDetailView material)

@@ -9,6 +9,7 @@ namespace _2.BUS.ViewModels
     public class OrderView
     {
         public Guid IdSP { get; set; }
+        public Guid IdMDetail { get; set; }
         public string MaSp { get; set; }
         public string ProductName { get; set; }
         public int Quanlity { get; set; }
