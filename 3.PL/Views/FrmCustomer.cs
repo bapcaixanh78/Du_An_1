@@ -38,7 +38,9 @@ namespace _3.PL.Views
             dgrid_customer.Columns[6].Name = "BirthOfDate";
             dgrid_customer.Columns[7].Name = "Status";
             dgrid_customer.Rows.Clear();
-            foreach (var x in _iCustomerService.GetAll())
+            var lstcustomer = _iCustomerService.GetAll();
+            lstcustomer = lstcustomer.Where(x => x.Code.ToLower().Contains(txt_sreach.Text.ToLower()) || x.Name.ToLower().Contains(txt_sreach.Text.ToLower())).ToList();
+            foreach (var x in lstcustomer)
             {
                 dgrid_customer.Rows.Add(stt++,x.IdCustomer, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Status == 1 ? "Activate" : "Inactive");
             }
@@ -137,5 +139,10 @@ namespace _3.PL.Views
                 rbtn_inactive.Checked = false;
             }
          }
+
+        private void txt_sreach_TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }

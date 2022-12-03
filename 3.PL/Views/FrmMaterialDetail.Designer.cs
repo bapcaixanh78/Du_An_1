@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.txt_importprice = new System.Windows.Forms.TextBox();
             this.txt_amount = new System.Windows.Forms.TextBox();
             this.txt_unit = new System.Windows.Forms.TextBox();
@@ -47,10 +48,9 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dgrid_materialdetail = new System.Windows.Forms.DataGridView();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txt_sreach = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -59,6 +59,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.txt_importprice);
             this.groupBox1.Controls.Add(this.txt_amount);
             this.groupBox1.Controls.Add(this.txt_unit);
@@ -78,6 +79,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(705, 195);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(167, 60);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Log Out";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txt_importprice
             // 
@@ -237,10 +248,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox3);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.dgrid_materialdetail);
-            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Controls.Add(this.txt_sreach);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox3.Location = new System.Drawing.Point(0, 261);
             this.groupBox3.Name = "groupBox3";
@@ -248,14 +258,6 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Display Information";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(367, 35);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(115, 28);
-            this.comboBox3.TabIndex = 16;
             // 
             // button1
             // 
@@ -277,12 +279,13 @@
             this.dgrid_materialdetail.TabIndex = 14;
             this.dgrid_materialdetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_materialdetail_CellClick);
             // 
-            // textBox6
+            // txt_sreach
             // 
-            this.textBox6.Location = new System.Drawing.Point(6, 35);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(250, 27);
-            this.textBox6.TabIndex = 13;
+            this.txt_sreach.Location = new System.Drawing.Point(6, 35);
+            this.txt_sreach.Name = "txt_sreach";
+            this.txt_sreach.Size = new System.Drawing.Size(250, 27);
+            this.txt_sreach.TabIndex = 13;
+            this.txt_sreach.TextChanged += new System.EventHandler(this.txt_sreach_TextChanged);
             // 
             // FrmMaterialDetail
             // 
@@ -324,10 +327,10 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.Button btn_add;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgrid_materialdetail;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txt_sreach;
         private System.Windows.Forms.TextBox txt_importprice;
+        private System.Windows.Forms.Button button2;
     }
 }

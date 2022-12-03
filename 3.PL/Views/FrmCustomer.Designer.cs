@@ -50,7 +50,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.txt_tk = new System.Windows.Forms.TextBox();
+            this.txt_sreach = new System.Windows.Forms.TextBox();
             this.dgrid_customer = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -254,7 +254,7 @@
             // 
             this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.txt_tk);
+            this.groupBox3.Controls.Add(this.txt_sreach);
             this.groupBox3.Controls.Add(this.dgrid_customer);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox3.Location = new System.Drawing.Point(0, 238);
@@ -281,12 +281,13 @@
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // txt_tk
+            // txt_sreach
             // 
-            this.txt_tk.Location = new System.Drawing.Point(12, 38);
-            this.txt_tk.Name = "txt_tk";
-            this.txt_tk.Size = new System.Drawing.Size(317, 27);
-            this.txt_tk.TabIndex = 1;
+            this.txt_sreach.Location = new System.Drawing.Point(12, 38);
+            this.txt_sreach.Name = "txt_sreach";
+            this.txt_sreach.Size = new System.Drawing.Size(317, 27);
+            this.txt_sreach.TabIndex = 1;
+            this.txt_sreach.TextChanged += new System.EventHandler(this.txt_sreach_TextChanged);
             // 
             // dgrid_customer
             // 
@@ -345,5 +346,6 @@
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_update;
+        private System.Windows.Forms.TextBox txt_sreach;
     }
 }

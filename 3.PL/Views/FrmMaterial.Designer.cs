@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.txt_name = new System.Windows.Forms.TextBox();
             this.txt_code = new System.Windows.Forms.TextBox();
             this.rbtn_hh = new System.Windows.Forms.RadioButton();
@@ -42,7 +43,6 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btn_search = new System.Windows.Forms.Button();
             this.dgrid_material = new System.Windows.Forms.DataGridView();
             this.txt_search = new System.Windows.Forms.TextBox();
@@ -54,6 +54,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txt_name);
             this.groupBox1.Controls.Add(this.txt_code);
             this.groupBox1.Controls.Add(this.rbtn_hh);
@@ -68,6 +69,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(681, 165);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(159, 67);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "FrmMaterialDetail";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txt_name
             // 
@@ -192,7 +203,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.btn_search);
             this.groupBox3.Controls.Add(this.dgrid_material);
             this.groupBox3.Controls.Add(this.txt_search);
@@ -203,14 +213,6 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Display Information";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(375, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(129, 28);
-            this.comboBox1.TabIndex = 3;
             // 
             // btn_search
             // 
@@ -238,6 +240,7 @@
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(263, 27);
             this.txt_search.TabIndex = 0;
+            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             // 
             // FrmMaterial
             // 
@@ -275,9 +278,9 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.Button btn_add;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.DataGridView dgrid_material;
         private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.Button button1;
     }
 }

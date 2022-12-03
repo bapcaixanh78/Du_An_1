@@ -34,7 +34,9 @@ namespace _3.PL.Views
             dgrid_material.Columns[3].Name = "Name";
             dgrid_material.Columns[4].Name = "Status";
             dgrid_material.Rows.Clear();
-            foreach (var x in _IMaterialService.GetAll())
+            var lstmaterial = _IMaterialService.GetAll();
+            lstmaterial = lstmaterial.Where(x => x.Code.ToLower().Contains(txt_search.Text.ToLower()) || x.Name.ToLower().Contains(txt_search.Text.ToLower())).ToList();
+            foreach (var x in lstmaterial)
             {
                 dgrid_material.Rows.Add(stt++,x.IdMaterial, x.Code, x.Name, x.Status == 1 ? "Activate" : "Inactive");
             }
@@ -132,6 +134,18 @@ namespace _3.PL.Views
                 rbtn_ch.Checked = true;
                 rbtn_hh.Checked = false;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmMaterialDetail frm = new FrmMaterialDetail();
+            this.Hide();
+            frm.Show();
+        }
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

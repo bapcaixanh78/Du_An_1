@@ -43,9 +43,11 @@ namespace _3.PL.Views
             dgrid_materialdetail.Columns[6].Name = "Amount";
             dgrid_materialdetail.Columns[7].Name = "Unit";
             dgrid_materialdetail.Rows.Clear();
-            foreach (var x in _iMTRLDetailService.GetAll())
+            var lstmtrldetail = _iMTRLDetailService.GetAll();
+            lstmtrldetail = lstmtrldetail.Where(x => x.NameMaterial.ToLower().Contains(txt_sreach.Text.ToLower()) || x.NameProducer.ToLower().Contains(txt_sreach.Text.ToLower())).ToList();
+            foreach (var x in lstmtrldetail)
             {
-                dgrid_materialdetail.Rows.Add(stt++,x.IdMDetail, x.NameMaterial, x.NameProducer, x.Price, x.ImportPrice, x.Amount, x.Unit);
+                dgrid_materialdetail.Rows.Add(stt++, x.IdMDetail, x.NameMaterial, x.NameProducer, x.Price, x.ImportPrice, x.Amount, x.Unit);
             }
         }
         private void LoadMaterial()
@@ -82,7 +84,7 @@ namespace _3.PL.Views
         private void btn_add_Click(object sender, EventArgs e)
         {
             DialogResult hoi;
-            hoi = MessageBox.Show("Do you want to add to this board?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question); 
+            hoi = MessageBox.Show("Do you want to add to this board?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (hoi == DialogResult.Yes)
             {
                 MessageBox.Show(_iMTRLDetailService.Add(GetDataFromGui()));
@@ -100,10 +102,10 @@ namespace _3.PL.Views
                 MessageBox.Show(_iMTRLDetailService.Update(GetDataFromGui()));
                 LoadData();
             }
-            else 
+            else
             {
                 return;
-            }                 
+            }
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -119,7 +121,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-          
+
         }
 
         private void btn_clear_Click(object sender, EventArgs e)
@@ -133,7 +135,7 @@ namespace _3.PL.Views
         }
 
         private void dgrid_materialdetail_CellClick(object sender, DataGridViewCellEventArgs e)
-        { 
+        {
             int rowIndex = e.RowIndex;
             //if (rowIndex == -1 || _iMTRLDetailService.GetAll().Count == 0) return;
             //_id = _iMTRLDetailService.GetAll().FirstOrDefault(c => c.IdMDetail == Guid.Parse(dgrid_materialdetail.Rows[rowIndex].Cells[0].Value.ToString())).IdMDetail;
@@ -149,6 +151,18 @@ namespace _3.PL.Views
             txt_amount.Text = Convert.ToString(temp.Amount);
             txt_unit.Text = temp.Unit;
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmMaterial frm = new FrmMaterial();
+            frm.ShowDialog();
+
+        }
+        private void txt_sreach_TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }
