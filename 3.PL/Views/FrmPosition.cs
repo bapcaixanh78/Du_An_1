@@ -39,6 +39,22 @@ namespace _3.PL.Views
                 dgrid_position.Rows.Add(stt++, x.IdPosition, x.Code, x.Name, x.Status);
             }
         }
+        private void LoadSearch(List<PositionView> lst)
+        {
+            int stt = 1;
+            dgrid_position.ColumnCount = 5;
+            dgrid_position.Columns[0].Name = "STT";
+            dgrid_position.Columns[1].Name = "ID";
+            dgrid_position.Columns[1].Visible = false;
+            dgrid_position.Columns[2].Name = "Code";
+            dgrid_position.Columns[3].Name = "Name";
+            dgrid_position.Columns[4].Name = "Status";
+            dgrid_position.Rows.Clear();
+            foreach (var x in lst)
+            {
+                dgrid_position.Rows.Add(stt++, x.IdPosition, x.Code, x.Name, x.Status);
+            }
+        }
         private PositionView GetDataFrom()
         {
             PositionView pstview = new PositionView();
@@ -46,24 +62,29 @@ namespace _3.PL.Views
                 pstview.IdPosition = _id;
                 pstview.Code = txt_code.Text;
                 pstview.Name = txt_name.Text;
-                pstview.Status = Convert.ToInt32(txt_status.Text);
+                pstview.Status = rbtn_1.Checked ? 1:0;
             };
             return pstview;
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            if(txt_code.Text == "")
+            var rerand = MessageBox.Show("Do you want more?", "Notify !", MessageBoxButtons.YesNo);
+            if (txt_code.Text == "")
             {
                 MessageBox.Show("Please enter the code");
             }else if(_ipositionService.GetAll().Any(x => x.Code == txt_code.Text))
             {
                 MessageBox.Show("Code already exists");
             }
-            else
+            else if(rerand == DialogResult.Yes)
             {
                 MessageBox.Show(_ipositionService.Add(GetDataFrom()));
                 LoadData();
+            }
+            else
+            {
+                return;
             }
         }
 
@@ -89,7 +110,14 @@ namespace _3.PL.Views
             var obj = _ipositionService.GetAll().FirstOrDefault(c => c.IdPosition == _id);
             txt_code.Text = obj.Code;
             txt_name.Text = obj.Name;
-            txt_status.Text = Convert.ToString(obj.Status);
+            if(obj.Status == 1)
+            {
+                rbtn_1.Checked = true;
+            }
+            else
+            {
+                rbtn_0.Checked = true;
+            }
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -110,7 +138,11 @@ namespace _3.PL.Views
         {
             txt_code.Text = null;
             txt_name.Text = null;
-            txt_status.Text = null;
+        }
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            LoadSearch(_ipositionService.Search(txt_search.Text));
         }
     }
 }

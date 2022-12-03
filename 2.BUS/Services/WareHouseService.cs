@@ -33,7 +33,7 @@ namespace _2.BUS.Services
                 Status = obj.Status,
             };
             if (_iWHRepository.Add(wareHouse)) return "Successful";
-            return "Successful";
+            return "Unsuccessful";
         }
 
         public string Delete(WareHouseView obj)
@@ -63,6 +63,12 @@ namespace _2.BUS.Services
                 }).ToList();
             //Để hiển thị sản phẩm thì có càng nhiều bảng tham gia thì join vào càng nhiều
             return lstWareHouseViews;
+        }
+
+        public List<WareHouseView> Search(string input)
+        {
+
+            return GetAll().Where(c => c.Code.ToLower().StartsWith(input.ToLower()) || c.Name.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
         public string Update(WareHouseView obj)

@@ -13,5 +13,7 @@ namespace _2.BUS.IServices
         string Update(StaffView obj);
         string Delete(StaffView obj);
         List<StaffView> GetAll();
+        List<StaffView> Search(string input);
+
     }
 }
