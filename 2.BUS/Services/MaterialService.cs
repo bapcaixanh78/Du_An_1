@@ -42,7 +42,8 @@ namespace _2.BUS.Services
                 return "Unsuccessful";
             }
             var VL = _ImaterialRepo.GetAll().FirstOrDefault(c => c.IdMaterial == obj.IdMaterial);
-            if (_ImaterialRepo.Delete(VL)) return "Successful";
+            VL.Status = 0;
+            if (_ImaterialRepo.Update(VL)) return "Successful";
             return "Unsuccessful";
         }
 
@@ -58,6 +59,16 @@ namespace _2.BUS.Services
                            Status = n.Status,
                        }).ToList();
             return lstmtrl;
+        }
+
+        public string Status(MaterialView obj)
+        {
+            if (obj == null) return "Unsuccessful";
+            var material= _ImaterialRepo.GetAll().FirstOrDefault(c => c.IdMaterial == obj.IdMaterial);
+            material.Status = 0;
+            if (_ImaterialRepo.Status(material))
+                return "Successful";
+            return "Unsuccessful";
         }
 
         public string Update(MaterialView obj)

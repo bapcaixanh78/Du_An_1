@@ -18,5 +18,6 @@ namespace _1.DAL.IRepositories
         Customer GetById(Guid id);
 
         List<Customer> GetAll();
+        bool Status(Customer customer);
     }
 }

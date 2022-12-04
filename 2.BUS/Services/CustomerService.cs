@@ -46,7 +46,7 @@ namespace _2.BUS.Services
                 return "Unsuccessful";
             }
             var KH = _iCustomerRepo.GetAll().FirstOrDefault(c => c.IdCustomer == obj.IdCustomer);
-            if (_iCustomerRepo.Delete(KH)) return "Successful";
+            if (_iCustomerRepo.Update(KH)) return "Successful";
             return "Unsuccessful";
         }
 
@@ -65,6 +65,15 @@ namespace _2.BUS.Services
                           Status = n.Status,
                       }).ToList();
             return lstctm;
+        }
+        public string Status(CustomerView obj)
+        {
+            if (obj == null) return "Unsuccessful";
+            var customer = _iCustomerRepo.GetAll().FirstOrDefault(c => c.IdCustomer == obj.IdCustomer);
+            customer.Status = 0;
+            if (_iCustomerRepo.Status(customer))
+                return "Successful";
+            return "Unsuccessful";
         }
 
         public string Update(CustomerView obj)
