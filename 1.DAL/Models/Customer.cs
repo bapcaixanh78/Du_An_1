@@ -26,6 +26,7 @@ namespace _1.DAL.Models
 
         [StringLength(30)]
         public string Address { get; set; }
+        public string Gender { get; set; }
 
         public DateTime BirthOfDate { get; set; }
 
