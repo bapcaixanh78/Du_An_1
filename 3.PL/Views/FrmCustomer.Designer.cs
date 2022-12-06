@@ -48,10 +48,11 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_sreach = new System.Windows.Forms.TextBox();
             this.dgrid_customer = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmb_gender = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -60,6 +61,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmb_gender);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.rbtn_inactive);
             this.groupBox1.Controls.Add(this.rbtn_activate);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
@@ -84,7 +87,7 @@
             // rbtn_inactive
             // 
             this.rbtn_inactive.AutoSize = true;
-            this.rbtn_inactive.Location = new System.Drawing.Point(466, 123);
+            this.rbtn_inactive.Location = new System.Drawing.Point(466, 172);
             this.rbtn_inactive.Name = "rbtn_inactive";
             this.rbtn_inactive.Size = new System.Drawing.Size(81, 24);
             this.rbtn_inactive.TabIndex = 14;
@@ -95,7 +98,7 @@
             // rbtn_activate
             // 
             this.rbtn_activate.AutoSize = true;
-            this.rbtn_activate.Location = new System.Drawing.Point(466, 93);
+            this.rbtn_activate.Location = new System.Drawing.Point(466, 143);
             this.rbtn_activate.Name = "rbtn_activate";
             this.rbtn_activate.Size = new System.Drawing.Size(84, 24);
             this.rbtn_activate.TabIndex = 13;
@@ -105,7 +108,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(466, 39);
+            this.dateTimePicker1.Location = new System.Drawing.Point(466, 90);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
             this.dateTimePicker1.TabIndex = 12;
@@ -141,7 +144,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(371, 97);
+            this.label6.Location = new System.Drawing.Point(362, 144);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 20);
             this.label6.TabIndex = 5;
@@ -150,7 +153,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(362, 42);
+            this.label5.Location = new System.Drawing.Point(362, 95);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 20);
             this.label5.TabIndex = 4;
@@ -252,7 +255,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.txt_sreach);
             this.groupBox3.Controls.Add(this.dgrid_customer);
@@ -264,19 +266,11 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Display Information";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(438, 37);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(128, 28);
-            this.comboBox1.TabIndex = 3;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(338, 26);
+            this.button1.Location = new System.Drawing.Point(338, 38);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 51);
+            this.button1.Size = new System.Drawing.Size(94, 27);
             this.button1.TabIndex = 2;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
@@ -299,6 +293,23 @@
             this.dgrid_customer.Size = new System.Drawing.Size(1164, 203);
             this.dgrid_customer.TabIndex = 0;
             this.dgrid_customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_customer_CellClick);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(362, 46);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 20);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Gender";
+            // 
+            // cmb_gender
+            // 
+            this.cmb_gender.FormattingEnabled = true;
+            this.cmb_gender.Location = new System.Drawing.Point(466, 46);
+            this.cmb_gender.Name = "cmb_gender";
+            this.cmb_gender.Size = new System.Drawing.Size(126, 28);
+            this.cmb_gender.TabIndex = 16;
             // 
             // FrmCustomer
             // 
@@ -339,7 +350,6 @@
         private System.Windows.Forms.RadioButton rbtn_activate;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btn_add;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txt_tk;
         private System.Windows.Forms.DataGridView dgrid_customer;
@@ -347,5 +357,7 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.TextBox txt_sreach;
+        private System.Windows.Forms.ComboBox cmb_gender;
+        private System.Windows.Forms.Label label7;
     }
 }

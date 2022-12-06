@@ -26,12 +26,13 @@ namespace _1.DAL.Models
 
         [StringLength(30)]
         public string Address { get; set; }
+        public string Gender { get; set; }
 
         public DateTime BirthOfDate { get; set; }
 
         public int Status { get; set; }
         public ICollection<PointWallet> PointWallets { get; set; }
-        public ICollection<Bill> Bills { get; set; }
 
+        public ICollection<Bill> Bills { get; set; }
     }
 }

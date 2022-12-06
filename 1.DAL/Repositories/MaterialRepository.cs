@@ -35,6 +35,16 @@ namespace _1.DAL.Repositories
             return true;
         }
 
+        public bool Status(Material obj)
+        {
+            if (obj == null) return false;
+            var temp = _dbContext.Materials.FirstOrDefault(c => c.IdMaterial == obj.IdMaterial);
+            temp.Status = obj.Status;
+            _dbContext.Update(temp);
+            _dbContext.SaveChanges();
+            return true;
+        }
+
         public List<Material> GetAll()
         {
             return _dbContext.Materials.ToList();

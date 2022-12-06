@@ -43,7 +43,7 @@ namespace _2.BUS.Services
             }
             var VL = _ImaterialRepo.GetAll().FirstOrDefault(c => c.IdMaterial == obj.IdMaterial);
             VL.Status = 0;
-            if (_ImaterialRepo.Update(VL)) return "Successful";
+            if (_ImaterialRepo.Delete(VL)) return "Successful";
             return "Unsuccessful";
         }
 
@@ -64,7 +64,7 @@ namespace _2.BUS.Services
         public string Status(MaterialView obj)
         {
             if (obj == null) return "Unsuccessful";
-            var material= _ImaterialRepo.GetAll().FirstOrDefault(c => c.IdMaterial == obj.IdMaterial);
+            var material = _ImaterialRepo.GetAll().FirstOrDefault(c => c.IdMaterial == obj.IdMaterial);
             material.Status = 0;
             if (_ImaterialRepo.Status(material))
                 return "Successful";

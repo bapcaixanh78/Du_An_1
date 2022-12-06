@@ -17,7 +17,7 @@ namespace _2.BUS.ViewModels
         public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
-
+        public string Gender { get; set; }
         public DateTime BirthOfDate { get; set; }
 
         public int Status { get; set; }

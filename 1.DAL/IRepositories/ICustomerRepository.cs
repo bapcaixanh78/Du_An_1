@@ -10,14 +10,10 @@ namespace _1.DAL.IRepositories
     public interface ICustomerRepository
     {
         bool Add(Customer obj);
-
         bool Update(Customer obj);
-
         bool Delete(Customer obj);
-
+        bool Status(Customer obj);
         Customer GetById(Guid id);
-
-        List<Customer> GetAll();
-        bool Status(Customer customer);
+        List<Customer> GetAll();    
     }
 }

@@ -14,7 +14,7 @@ namespace _2.BUS.Services
     public class CustomerService : ICustomerService
     {
         ICustomerRepository _iCustomerRepo;
-        
+
         public CustomerService()
         {
             _iCustomerRepo = new CustomerRepository();
@@ -32,6 +32,7 @@ namespace _2.BUS.Services
                 Name = obj.Name,
                 PhoneNumber = obj.PhoneNumber,
                 Address = obj.Address,
+                Gender = obj.Gender,
                 BirthOfDate = obj.BirthOfDate,
                 Status = obj.Status,
             };
@@ -46,7 +47,10 @@ namespace _2.BUS.Services
                 return "Unsuccessful";
             }
             var KH = _iCustomerRepo.GetAll().FirstOrDefault(c => c.IdCustomer == obj.IdCustomer);
-            if (_iCustomerRepo.Update(KH)) return "Successful";
+            if (_iCustomerRepo.Delete(KH)) 
+            {
+                return "Successful";
+            }
             return "Unsuccessful";
         }
 
@@ -61,11 +65,18 @@ namespace _2.BUS.Services
                           Name = n.Name,
                           PhoneNumber = n.PhoneNumber,
                           Address = n.Address,
+                          Gender = n.Gender,
                           BirthOfDate = n.BirthOfDate,
                           Status = n.Status,
                       }).ToList();
             return lstctm;
         }
+
+        public List<string> GetGender()
+        {
+            return new List<string>() { "Male", "Female" };
+        }
+
         public string Status(CustomerView obj)
         {
             if (obj == null) return "Unsuccessful";
@@ -88,6 +99,7 @@ namespace _2.BUS.Services
             KH.Name = obj.Name;
             KH.PhoneNumber = obj.PhoneNumber;
             KH.Address = obj.Address;
+            KH.Gender = obj.Gender;
             KH.BirthOfDate = obj.BirthOfDate;
             KH.Status = obj.Status;
             if (_iCustomerRepo.Update(KH)) return "Successful";

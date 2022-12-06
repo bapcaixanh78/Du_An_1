@@ -12,6 +12,8 @@ namespace _2.BUS.IServices
         string Add(CustomerView obj);
         string Delete(CustomerView obj);
         string Update(CustomerView obj);
+        string Status(CustomerView obj);
         List<CustomerView> GetAll();
+        List<string> GetGender();
     }
 }
