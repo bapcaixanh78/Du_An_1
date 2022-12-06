@@ -22,7 +22,8 @@ namespace _1.DAL.Models
         public DateTime ShipDate { get; set; }
         public DateTime ReceivedDate { get; set; }
         public int Status { get; set; }
-
+        [StringLength(1000)]
+        public string? Note { get; set; }
         public int PointsUsed { get; set; }
         public ICollection<HistoryUsingPoints> HPoints { get; set; }
         public Guid IdCustomer { get; set; }
