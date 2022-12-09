@@ -22,7 +22,6 @@ namespace _1.DAL.Models
         public string Name { get; set; }
 
         public int Status { get; set; }
-
         public ICollection<MaterialDetail> MaterialDetails { get; set; }
 
         public ICollection<BillDetail> BillDetails { get; set; }

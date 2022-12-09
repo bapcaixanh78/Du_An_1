@@ -12,8 +12,7 @@ namespace _1.DAL.IRepositories
         bool Add(Customer obj);
         bool Update(Customer obj);
         bool Delete(Customer obj);
-        bool Status(Customer obj);
-        Customer GetById(Guid id);
-        List<Customer> GetAll();    
+        Customer GetById(Guid id); 
+        List<Customer> GetAll();
     }
 }

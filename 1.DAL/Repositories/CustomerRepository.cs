@@ -35,16 +35,6 @@ namespace _1.DAL.Repositories
             return true;
         }
 
-        public bool Status(Customer obj)
-        {
-            if (obj == null) return false;
-            var temp = _dbContext.Customers.FirstOrDefault(c => c.IdCustomer == obj.IdCustomer);
-            temp.Status = obj.Status;
-            _dbContext.Update(temp);
-            _dbContext.SaveChanges();
-            return true;
-        }
-
         public List<Customer> GetAll()
         {
             return _dbContext.Customers.ToList();

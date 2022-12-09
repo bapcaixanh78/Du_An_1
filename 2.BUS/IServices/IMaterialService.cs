@@ -12,7 +12,6 @@ namespace _2.BUS.IServices
         string Add(MaterialView obj);
         string Delete(MaterialView obj);
         string Update(MaterialView obj);
-        string Status(MaterialView obj);
         List<MaterialView> GetAll();
     }
 }

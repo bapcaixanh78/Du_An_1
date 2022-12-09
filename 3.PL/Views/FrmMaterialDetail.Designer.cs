@@ -48,7 +48,6 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.dgrid_materialdetail = new System.Windows.Forms.DataGridView();
             this.txt_sreach = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -78,7 +77,7 @@
             this.groupBox1.Size = new System.Drawing.Size(898, 261);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Information";
+            this.groupBox1.Text = "MaterialDetail";
             // 
             // button2
             // 
@@ -200,7 +199,7 @@
             this.groupBox2.Size = new System.Drawing.Size(295, 261);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Function";
+            this.groupBox2.Text = "Service";
             // 
             // btn_clear
             // 
@@ -248,7 +247,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.dgrid_materialdetail);
             this.groupBox3.Controls.Add(this.txt_sreach);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -259,31 +257,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Display Information";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(262, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // dgrid_materialdetail
             // 
             this.dgrid_materialdetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_materialdetail.Location = new System.Drawing.Point(6, 81);
+            this.dgrid_materialdetail.Location = new System.Drawing.Point(6, 59);
             this.dgrid_materialdetail.Name = "dgrid_materialdetail";
             this.dgrid_materialdetail.RowHeadersWidth = 51;
             this.dgrid_materialdetail.RowTemplate.Height = 29;
-            this.dgrid_materialdetail.Size = new System.Drawing.Size(1181, 163);
+            this.dgrid_materialdetail.Size = new System.Drawing.Size(1181, 185);
             this.dgrid_materialdetail.TabIndex = 14;
             this.dgrid_materialdetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_materialdetail_CellClick);
             // 
             // txt_sreach
             // 
-            this.txt_sreach.Location = new System.Drawing.Point(6, 35);
+            this.txt_sreach.Location = new System.Drawing.Point(275, 17);
             this.txt_sreach.Name = "txt_sreach";
-            this.txt_sreach.Size = new System.Drawing.Size(250, 27);
+            this.txt_sreach.Size = new System.Drawing.Size(532, 27);
             this.txt_sreach.TabIndex = 13;
             this.txt_sreach.TextChanged += new System.EventHandler(this.txt_sreach_TextChanged);
             // 

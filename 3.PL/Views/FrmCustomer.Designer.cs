@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmb_gender = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.rbtn_inactive = new System.Windows.Forms.RadioButton();
             this.rbtn_activate = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -48,11 +50,8 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.txt_sreach = new System.Windows.Forms.TextBox();
             this.dgrid_customer = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmb_gender = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -82,7 +81,24 @@
             this.groupBox1.Size = new System.Drawing.Size(867, 238);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Information";
+            this.groupBox1.Text = "Customer";
+            // 
+            // cmb_gender
+            // 
+            this.cmb_gender.FormattingEnabled = true;
+            this.cmb_gender.Location = new System.Drawing.Point(466, 46);
+            this.cmb_gender.Name = "cmb_gender";
+            this.cmb_gender.Size = new System.Drawing.Size(129, 28);
+            this.cmb_gender.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(362, 46);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 20);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Gender";
             // 
             // rbtn_inactive
             // 
@@ -207,7 +223,7 @@
             this.groupBox2.Size = new System.Drawing.Size(312, 238);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Function";
+            this.groupBox2.Text = "Service";
             // 
             // btn_clear
             // 
@@ -255,7 +271,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.txt_sreach);
             this.groupBox3.Controls.Add(this.dgrid_customer);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -266,50 +281,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Display Information";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(338, 38);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 27);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // txt_sreach
             // 
-            this.txt_sreach.Location = new System.Drawing.Point(12, 38);
+            this.txt_sreach.Location = new System.Drawing.Point(338, 26);
             this.txt_sreach.Name = "txt_sreach";
-            this.txt_sreach.Size = new System.Drawing.Size(317, 27);
+            this.txt_sreach.Size = new System.Drawing.Size(459, 27);
             this.txt_sreach.TabIndex = 1;
             this.txt_sreach.TextChanged += new System.EventHandler(this.txt_sreach_TextChanged);
             // 
             // dgrid_customer
             // 
             this.dgrid_customer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_customer.Location = new System.Drawing.Point(9, 83);
+            this.dgrid_customer.Location = new System.Drawing.Point(9, 70);
             this.dgrid_customer.Name = "dgrid_customer";
             this.dgrid_customer.RowHeadersWidth = 51;
             this.dgrid_customer.RowTemplate.Height = 29;
-            this.dgrid_customer.Size = new System.Drawing.Size(1164, 203);
+            this.dgrid_customer.Size = new System.Drawing.Size(1164, 216);
             this.dgrid_customer.TabIndex = 0;
             this.dgrid_customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_customer_CellClick);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(362, 46);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 20);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Gender";
-            // 
-            // cmb_gender
-            // 
-            this.cmb_gender.FormattingEnabled = true;
-            this.cmb_gender.Location = new System.Drawing.Point(466, 46);
-            this.cmb_gender.Name = "cmb_gender";
-            this.cmb_gender.Size = new System.Drawing.Size(126, 28);
-            this.cmb_gender.TabIndex = 16;
             // 
             // FrmCustomer
             // 

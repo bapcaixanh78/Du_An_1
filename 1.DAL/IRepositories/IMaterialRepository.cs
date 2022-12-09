@@ -14,7 +14,6 @@ namespace _1.DAL.IRepositories
         bool Update(Material obj);
 
         bool Delete(Material obj);
-        bool Status(Material obj);
         Material GetById(Guid id);
         List<Material> GetAll();
     }

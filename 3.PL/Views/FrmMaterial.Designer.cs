@@ -43,7 +43,6 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_search = new System.Windows.Forms.Button();
             this.dgrid_material = new System.Windows.Forms.DataGridView();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -65,10 +64,10 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(884, 232);
+            this.groupBox1.Size = new System.Drawing.Size(884, 244);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Information";
+            this.groupBox1.Text = "Material";
             // 
             // button1
             // 
@@ -99,10 +98,10 @@
             this.rbtn_hh.AutoSize = true;
             this.rbtn_hh.Location = new System.Drawing.Point(141, 162);
             this.rbtn_hh.Name = "rbtn_hh";
-            this.rbtn_hh.Size = new System.Drawing.Size(91, 24);
+            this.rbtn_hh.Size = new System.Drawing.Size(94, 24);
             this.rbtn_hh.TabIndex = 4;
             this.rbtn_hh.TabStop = true;
-            this.rbtn_hh.Text = "Hết hàng";
+            this.rbtn_hh.Text = "Out Stock";
             this.rbtn_hh.UseVisualStyleBackColor = true;
             // 
             // rbtn_ch
@@ -110,10 +109,10 @@
             this.rbtn_ch.AutoSize = true;
             this.rbtn_ch.Location = new System.Drawing.Point(141, 123);
             this.rbtn_ch.Name = "rbtn_ch";
-            this.rbtn_ch.Size = new System.Drawing.Size(93, 24);
+            this.rbtn_ch.Size = new System.Drawing.Size(82, 24);
             this.rbtn_ch.TabIndex = 3;
             this.rbtn_ch.TabStop = true;
-            this.rbtn_ch.Text = "Còn hàng";
+            this.rbtn_ch.Text = "In Stock";
             this.rbtn_ch.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -152,10 +151,10 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Location = new System.Drawing.Point(890, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(311, 232);
+            this.groupBox2.Size = new System.Drawing.Size(311, 244);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Function";
+            this.groupBox2.Text = "Service";
             // 
             // btn_clear
             // 
@@ -203,25 +202,15 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btn_search);
             this.groupBox3.Controls.Add(this.dgrid_material);
             this.groupBox3.Controls.Add(this.txt_search);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Location = new System.Drawing.Point(0, 232);
+            this.groupBox3.Location = new System.Drawing.Point(0, 244);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1201, 300);
+            this.groupBox3.Size = new System.Drawing.Size(1201, 288);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Display Information";
-            // 
-            // btn_search
-            // 
-            this.btn_search.Location = new System.Drawing.Point(275, 25);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(94, 29);
-            this.btn_search.TabIndex = 2;
-            this.btn_search.Text = "Search";
-            this.btn_search.UseVisualStyleBackColor = true;
             // 
             // dgrid_material
             // 
@@ -236,9 +225,9 @@
             // 
             // txt_search
             // 
-            this.txt_search.Location = new System.Drawing.Point(6, 26);
+            this.txt_search.Location = new System.Drawing.Point(346, 26);
             this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(263, 27);
+            this.txt_search.Size = new System.Drawing.Size(472, 27);
             this.txt_search.TabIndex = 0;
             this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             // 
