@@ -22,6 +22,7 @@ namespace _3.PL.Views
             InitializeComponent();
             _ipositionService = new PositionService();
             LoadData();
+            rbtn_active.Checked = true;
         }
         private void LoadData()
         {
@@ -62,7 +63,7 @@ namespace _3.PL.Views
                 pstview.IdPosition = _id;
                 pstview.Code = txt_code.Text;
                 pstview.Name = txt_name.Text;
-                pstview.Status = rbtn_1.Checked ? 1:0;
+                pstview.Status = rbtn_active.Checked ? 1:0;
             };
             return pstview;
         }
@@ -112,11 +113,11 @@ namespace _3.PL.Views
             txt_name.Text = obj.Name;
             if(obj.Status == 1)
             {
-                rbtn_1.Checked = true;
+                rbtn_active.Checked = true;
             }
             else
             {
-                rbtn_0.Checked = true;
+                rbtn_inactive.Checked = true;
             }
         }
 
@@ -125,8 +126,10 @@ namespace _3.PL.Views
             var rerand = MessageBox.Show("You may want to delete?", "Notify !", MessageBoxButtons.YesNo);
             if (rerand == DialogResult.Yes)
             {
-                MessageBox.Show(_ipositionService.Delete(GetDataFrom()));
+                MessageBox.Show(_ipositionService.Status(GetDataFrom()));
                 LoadData();
+                txt_code.Text = null;
+                txt_name.Text = null;
             }
             else
             {

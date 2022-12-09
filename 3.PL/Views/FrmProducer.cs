@@ -22,6 +22,7 @@ namespace _3.PL.Views
             InitializeComponent();
             _iproducerService = new ProducerService();
             LoadData();
+            rbtn_active.Checked = true;
         }
         private void LoadData()
         {
@@ -74,7 +75,7 @@ namespace _3.PL.Views
                 prdview.Address = txt_adress.Text;
                 prdview.City = txt_city.Text;
                 prdview.Nation = txt_nation.Text;
-                prdview.Status = rbtn_1.Checked ? 1 : 0;
+                prdview.Status = rbtn_active.Checked ? 1 : 0;
             };
             return prdview;
         }
@@ -129,11 +130,11 @@ namespace _3.PL.Views
             txt_nation.Text = obj.Nation;
             if(obj.Status == 1)
             {
-                rbtn_1.Checked = true;
+                rbtn_active.Checked = true;
             }
             else
             {
-                rbtn_0.Checked = true;
+                rbtn_inactive.Checked = true;
             }
         }
 
@@ -142,8 +143,15 @@ namespace _3.PL.Views
             var rerand = MessageBox.Show("You may want to delete?", "Notify !", MessageBoxButtons.YesNo);
             if (rerand == DialogResult.Yes)
             {
-                MessageBox.Show(_iproducerService.Delete(GetDataFrom()));
-                LoadData();
+                MessageBox.Show(_iproducerService.Status(GetDataFrom()));
+                LoadData(); 
+                txt_code.Text = null;
+                txt_adress.Text = null;
+                txt_city.Text = null;
+                txt_code.Text = null;
+                txt_name.Text = null;
+                txt_nation.Text = null;
+                txt_phone.Text = null;
             }
             else
             {

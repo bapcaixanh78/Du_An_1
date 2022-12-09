@@ -34,8 +34,8 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbtn_0 = new System.Windows.Forms.RadioButton();
-            this.rbtn_1 = new System.Windows.Forms.RadioButton();
+            this.rbtn_inactive = new System.Windows.Forms.RadioButton();
+            this.rbtn_active = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tx = new System.Windows.Forms.Label();
@@ -118,8 +118,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.rbtn_0);
-            this.groupBox2.Controls.Add(this.rbtn_1);
+            this.groupBox2.Controls.Add(this.rbtn_inactive);
+            this.groupBox2.Controls.Add(this.rbtn_active);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.tx);
@@ -140,27 +140,27 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // rbtn_0
+            // rbtn_inactive
             // 
-            this.rbtn_0.AutoSize = true;
-            this.rbtn_0.Location = new System.Drawing.Point(378, 194);
-            this.rbtn_0.Name = "rbtn_0";
-            this.rbtn_0.Size = new System.Drawing.Size(38, 24);
-            this.rbtn_0.TabIndex = 23;
-            this.rbtn_0.TabStop = true;
-            this.rbtn_0.Text = "0";
-            this.rbtn_0.UseVisualStyleBackColor = true;
+            this.rbtn_inactive.AutoSize = true;
+            this.rbtn_inactive.Location = new System.Drawing.Point(378, 194);
+            this.rbtn_inactive.Name = "rbtn_inactive";
+            this.rbtn_inactive.Size = new System.Drawing.Size(81, 24);
+            this.rbtn_inactive.TabIndex = 23;
+            this.rbtn_inactive.TabStop = true;
+            this.rbtn_inactive.Text = "Inactive";
+            this.rbtn_inactive.UseVisualStyleBackColor = true;
             // 
-            // rbtn_1
+            // rbtn_active
             // 
-            this.rbtn_1.AutoSize = true;
-            this.rbtn_1.Location = new System.Drawing.Point(378, 164);
-            this.rbtn_1.Name = "rbtn_1";
-            this.rbtn_1.Size = new System.Drawing.Size(38, 24);
-            this.rbtn_1.TabIndex = 22;
-            this.rbtn_1.TabStop = true;
-            this.rbtn_1.Text = "1";
-            this.rbtn_1.UseVisualStyleBackColor = true;
+            this.rbtn_active.AutoSize = true;
+            this.rbtn_active.Location = new System.Drawing.Point(378, 164);
+            this.rbtn_active.Name = "rbtn_active";
+            this.rbtn_active.Size = new System.Drawing.Size(71, 24);
+            this.rbtn_active.TabIndex = 22;
+            this.rbtn_active.TabStop = true;
+            this.rbtn_active.Text = "Active";
+            this.rbtn_active.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -194,9 +194,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 223);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 20);
+            this.label4.Size = new System.Drawing.Size(62, 20);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Adress";
+            this.label4.Text = "Address";
             // 
             // label3
             // 
@@ -352,8 +352,8 @@
         private System.Windows.Forms.TextBox txt_phone;
         private System.Windows.Forms.TextBox txt_city;
         private System.Windows.Forms.TextBox txt_code;
-        private System.Windows.Forms.RadioButton rbtn_1;
-        private System.Windows.Forms.RadioButton rbtn_0;
+        private System.Windows.Forms.RadioButton rbtn_active;
+        private System.Windows.Forms.RadioButton rbtn_inactive;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Label label10;
     }

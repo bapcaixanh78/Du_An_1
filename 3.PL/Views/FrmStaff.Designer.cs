@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbtn_0 = new System.Windows.Forms.RadioButton();
-            this.rbtn_1 = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
+            this.rbtn_inactive = new System.Windows.Forms.RadioButton();
+            this.rbtn_active = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_warehouse = new System.Windows.Forms.ComboBox();
@@ -57,6 +58,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.dgrid_staff = new System.Windows.Forms.DataGridView();
+            this.txt_gender = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -65,8 +67,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.rbtn_0);
-            this.groupBox1.Controls.Add(this.rbtn_1);
+            this.groupBox1.Controls.Add(this.txt_gender);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.rbtn_inactive);
+            this.groupBox1.Controls.Add(this.rbtn_active);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmb_warehouse);
@@ -91,27 +95,36 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // rbtn_0
+            // label11
             // 
-            this.rbtn_0.AutoSize = true;
-            this.rbtn_0.Location = new System.Drawing.Point(402, 263);
-            this.rbtn_0.Name = "rbtn_0";
-            this.rbtn_0.Size = new System.Drawing.Size(38, 24);
-            this.rbtn_0.TabIndex = 21;
-            this.rbtn_0.TabStop = true;
-            this.rbtn_0.Text = "0";
-            this.rbtn_0.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(11, 124);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 20);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Gender";
             // 
-            // rbtn_1
+            // rbtn_inactive
             // 
-            this.rbtn_1.AutoSize = true;
-            this.rbtn_1.Location = new System.Drawing.Point(402, 221);
-            this.rbtn_1.Name = "rbtn_1";
-            this.rbtn_1.Size = new System.Drawing.Size(38, 24);
-            this.rbtn_1.TabIndex = 20;
-            this.rbtn_1.TabStop = true;
-            this.rbtn_1.Text = "1";
-            this.rbtn_1.UseVisualStyleBackColor = true;
+            this.rbtn_inactive.AutoSize = true;
+            this.rbtn_inactive.Location = new System.Drawing.Point(402, 251);
+            this.rbtn_inactive.Name = "rbtn_inactive";
+            this.rbtn_inactive.Size = new System.Drawing.Size(81, 24);
+            this.rbtn_inactive.TabIndex = 21;
+            this.rbtn_inactive.TabStop = true;
+            this.rbtn_inactive.Text = "Inactive";
+            this.rbtn_inactive.UseVisualStyleBackColor = true;
+            // 
+            // rbtn_active
+            // 
+            this.rbtn_active.AutoSize = true;
+            this.rbtn_active.Location = new System.Drawing.Point(402, 221);
+            this.rbtn_active.Name = "rbtn_active";
+            this.rbtn_active.Size = new System.Drawing.Size(71, 24);
+            this.rbtn_active.TabIndex = 20;
+            this.rbtn_active.TabStop = true;
+            this.rbtn_active.Text = "Active";
+            this.rbtn_active.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -134,7 +147,7 @@
             // cmb_warehouse
             // 
             this.cmb_warehouse.FormattingEnabled = true;
-            this.cmb_warehouse.Location = new System.Drawing.Point(402, 66);
+            this.cmb_warehouse.Location = new System.Drawing.Point(402, 69);
             this.cmb_warehouse.Name = "cmb_warehouse";
             this.cmb_warehouse.Size = new System.Drawing.Size(125, 28);
             this.cmb_warehouse.TabIndex = 17;
@@ -179,9 +192,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 244);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 20);
+            this.label4.Size = new System.Drawing.Size(62, 20);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Adress";
+            this.label4.Text = "Address";
             // 
             // label3
             // 
@@ -195,7 +208,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 112);
+            this.label2.Location = new System.Drawing.Point(12, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 9;
@@ -204,7 +217,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 46);
+            this.label1.Location = new System.Drawing.Point(12, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 20);
             this.label1.TabIndex = 8;
@@ -219,7 +232,7 @@
             // 
             // dtpk_date
             // 
-            this.dtpk_date.Location = new System.Drawing.Point(402, 112);
+            this.dtpk_date.Location = new System.Drawing.Point(402, 119);
             this.dtpk_date.Name = "dtpk_date";
             this.dtpk_date.Size = new System.Drawing.Size(125, 27);
             this.dtpk_date.TabIndex = 5;
@@ -233,7 +246,7 @@
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(120, 109);
+            this.txt_name.Location = new System.Drawing.Point(120, 70);
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(125, 27);
             this.txt_name.TabIndex = 3;
@@ -247,7 +260,7 @@
             // 
             // txt_code
             // 
-            this.txt_code.Location = new System.Drawing.Point(120, 43);
+            this.txt_code.Location = new System.Drawing.Point(120, 24);
             this.txt_code.Name = "txt_code";
             this.txt_code.Size = new System.Drawing.Size(125, 27);
             this.txt_code.TabIndex = 0;
@@ -351,6 +364,13 @@
             this.dgrid_staff.TabIndex = 0;
             this.dgrid_staff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_staff_CellClick);
             // 
+            // txt_gender
+            // 
+            this.txt_gender.Location = new System.Drawing.Point(120, 121);
+            this.txt_gender.Name = "txt_gender";
+            this.txt_gender.Size = new System.Drawing.Size(125, 27);
+            this.txt_gender.TabIndex = 23;
+            // 
             // FrmStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -398,9 +418,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmb_warehouse;
         private System.Windows.Forms.ComboBox cmb_position;
-        private System.Windows.Forms.RadioButton rbtn_0;
-        private System.Windows.Forms.RadioButton rbtn_1;
+        private System.Windows.Forms.RadioButton rbtn_inactive;
+        private System.Windows.Forms.RadioButton rbtn_active;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txt_gender;
     }
 }

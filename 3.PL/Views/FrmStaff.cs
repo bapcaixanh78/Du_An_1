@@ -28,6 +28,7 @@ namespace _3.PL.Views
             LoadData();
             LoadPosition();
             LoadWareHouse();
+            rbtn_active.Checked = true;
         }
         private void LoadWareHouse()
         {
@@ -50,7 +51,7 @@ namespace _3.PL.Views
         private void LoadData()
         {
             int stt = 1;
-            dgrid_staff.ColumnCount = 11;
+            dgrid_staff.ColumnCount = 12;
             dgrid_staff.Columns[0].Name = "STT";
             dgrid_staff.Columns[1].Name = "ID";
             dgrid_staff.Columns[1].Visible = false;
@@ -63,16 +64,17 @@ namespace _3.PL.Views
             dgrid_staff.Columns[8].Name = "Status";
             dgrid_staff.Columns[9].Name = "Name Position";
             dgrid_staff.Columns[10].Name = "Name Ware House";
+            dgrid_staff.Columns[11].Name = "Gender";
             dgrid_staff.Rows.Clear();
             foreach (var x in _istaffService.GetAll())
             {
-                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status, x.NamePosition, x.NameWareHouse);
+                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status, x.NamePosition, x.NameWareHouse, x.Gender);
             }
         }
         private void LoadSearch(List<StaffView> lst)
         {
             int stt = 1;
-            dgrid_staff.ColumnCount = 11;
+            dgrid_staff.ColumnCount = 12;
             dgrid_staff.Columns[0].Name = "STT";
             dgrid_staff.Columns[1].Name = "ID";
             dgrid_staff.Columns[1].Visible = false;
@@ -85,10 +87,11 @@ namespace _3.PL.Views
             dgrid_staff.Columns[8].Name = "Status";
             dgrid_staff.Columns[9].Name = "Name Position";
             dgrid_staff.Columns[10].Name = "Name Ware House";
+            dgrid_staff.Columns[11].Name = "Gender";
             dgrid_staff.Rows.Clear();
             foreach (var x in lst)
             {
-                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status, x.NamePosition, x.NameWareHouse);
+                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status, x.NamePosition, x.NameWareHouse,x.Gender);
             }
         }
         private StaffView GetDataFrom()
@@ -98,11 +101,12 @@ namespace _3.PL.Views
                 staffView.IdStaff = _id;
                 staffView.Code = txt_code.Text;
                 staffView.Name = txt_name.Text;
+                staffView.Gender = txt_gender.Text;
                 staffView.PhoneNumber = txt_phone.Text;
                 staffView.Address = txt_adress.Text;
                 staffView.BirthOfDate = Convert.ToDateTime(dtpk_date.Text);
                 staffView.Wage = Convert.ToDecimal(txt_wage.Text);
-                staffView.Status = rbtn_1.Checked ? 1 : 0;
+                staffView.Status = rbtn_active.Checked ? 1 : 0;
                 staffView.IdPosition = _ipositionService.GetAll()[cmb_position.SelectedIndex].IdPosition;
                 staffView.IdWareHouse = _iwareHouseService.GetAll()[cmb_warehouse.SelectedIndex].IdWarehouse;   
             };
@@ -138,17 +142,18 @@ namespace _3.PL.Views
             var obj = _istaffService.GetAll().FirstOrDefault(c => c.IdStaff == _id);
             txt_code.Text = obj.Code;
             txt_name.Text = obj.Name;
+            txt_gender.Text = obj.Gender;
             txt_phone.Text = obj.PhoneNumber;
             txt_adress.Text = obj.Address;
             dtpk_date.Text = Convert.ToString(obj.BirthOfDate);
             txt_wage.Text = Convert.ToString(obj.Wage);
             if(obj.Status == 1)
             {
-                rbtn_1.Checked = true;
+                rbtn_active.Checked = true;
             }
             else
             {
-                rbtn_0.Checked = true;
+                rbtn_inactive.Checked = true;
             }
             cmb_position.SelectedItem = obj.NamePosition;
             cmb_warehouse.SelectedItem = obj.NameWareHouse;
@@ -173,7 +178,7 @@ namespace _3.PL.Views
             var rerand = MessageBox.Show("You may want to delete?", "Notify !", MessageBoxButtons.YesNo);
             if (rerand == DialogResult.Yes)
             {
-                MessageBox.Show(_istaffService.Delete(GetDataFrom()));
+                MessageBox.Show(_istaffService.Status(GetDataFrom()));
                 LoadData();
             }
             else

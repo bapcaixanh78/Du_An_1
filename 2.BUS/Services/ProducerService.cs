@@ -71,6 +71,16 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.Code.ToLower().StartsWith(input.ToLower()) || c.Name.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
+        public string Status(ProducerView obj)
+        {
+            if (obj == null) return "Unsuccessful";
+            var producer = _iProducerRepository.GetAll().FirstOrDefault(c => c.IdProducer == obj.IdProducer);
+            producer.Status = 0;
+            if (_iProducerRepository.Update(producer))
+                return "Successful";
+            return "Unsuccessful";
+        }
+
         public string Update(ProducerView obj)
         {
             if (obj == null) return "Unsuccessful";
