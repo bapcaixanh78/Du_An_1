@@ -20,7 +20,8 @@ namespace _1.DAL.Models
 
         public int Status { get; set; }
 
-        public virtual Customer Customer { get; set; }
-        public virtual HistoryUsingPoints HPoints { get; set; }
+        public Guid IdCustomer { get; set; }
+        public Customer Customer { get; set; }
+        public ICollection<HistoryUsingPoints> HPoints { get; set; }
     }
 }

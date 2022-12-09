@@ -46,7 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_clear = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -214,7 +213,6 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btn_clear);
-            this.groupBox2.Controls.Add(this.btn_delete);
             this.groupBox2.Controls.Add(this.btn_update);
             this.groupBox2.Controls.Add(this.btn_add);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -228,31 +226,20 @@
             // btn_clear
             // 
             this.btn_clear.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_clear.Location = new System.Drawing.Point(3, 182);
+            this.btn_clear.Location = new System.Drawing.Point(3, 167);
             this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(306, 53);
+            this.btn_clear.Size = new System.Drawing.Size(306, 71);
             this.btn_clear.TabIndex = 3;
             this.btn_clear.Text = "Clear";
             this.btn_clear.UseVisualStyleBackColor = true;
             this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
-            // btn_delete
-            // 
-            this.btn_delete.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_delete.Location = new System.Drawing.Point(3, 129);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(306, 53);
-            this.btn_delete.TabIndex = 2;
-            this.btn_delete.Text = "Delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
-            // 
             // btn_update
             // 
             this.btn_update.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_update.Location = new System.Drawing.Point(3, 76);
+            this.btn_update.Location = new System.Drawing.Point(3, 102);
             this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(306, 53);
+            this.btn_update.Size = new System.Drawing.Size(306, 65);
             this.btn_update.TabIndex = 1;
             this.btn_update.Text = "Update";
             this.btn_update.UseVisualStyleBackColor = true;
@@ -263,7 +250,7 @@
             this.btn_add.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_add.Location = new System.Drawing.Point(3, 23);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(306, 53);
+            this.btn_add.Size = new System.Drawing.Size(306, 79);
             this.btn_add.TabIndex = 0;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -343,7 +330,6 @@
         private System.Windows.Forms.TextBox txt_tk;
         private System.Windows.Forms.DataGridView dgrid_customer;
         private System.Windows.Forms.Button btn_clear;
-        private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.TextBox txt_sreach;
         private System.Windows.Forms.ComboBox cmb_gender;

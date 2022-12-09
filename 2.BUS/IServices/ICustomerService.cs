@@ -10,7 +10,6 @@ namespace _2.BUS.IServices
     public interface ICustomerService
     {
         string Add(CustomerView obj);
-        string Delete(CustomerView obj);
         string Update(CustomerView obj);
         List<CustomerView> GetAll();
         List<string> GetGender();

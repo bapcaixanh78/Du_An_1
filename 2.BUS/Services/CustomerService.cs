@@ -40,21 +40,6 @@ namespace _2.BUS.Services
             return "Unsuccessful";
         }
 
-        public string Delete(CustomerView obj)
-        {
-            if (obj == null)
-            {
-                return "Unsuccessful";
-            }
-            var KH = _iCustomerRepo.GetAll().FirstOrDefault(c => c.IdCustomer == obj.IdCustomer);
-            KH.Status = 0;
-            if (_iCustomerRepo.Update(KH)) 
-            {
-                return "Successful";
-            }
-            return "Unsuccessful";
-        }
-
         public List<CustomerView> GetAll()
         {
             List<CustomerView> lstctm = new List<CustomerView>();

@@ -27,7 +27,7 @@ namespace _1.DAL.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BillDetail>().HasKey(e => new { e.IdMDetail, e.IdBill });
+            modelBuilder.Entity<BillDetail>().HasKey(e => new { e.IdMaterial, e.IdBill });
         }
         public DbSet<Bill> bills { get; set; }
         public DbSet<BillDetail> billDetails { get; set; }

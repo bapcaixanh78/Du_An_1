@@ -103,22 +103,8 @@ namespace _3.PL.Views
                 LoadData();
             }
             else return;
-            
-        }
 
-        private void btn_delete_Click(object sender, EventArgs e)
-        {
-            DialogResult hoi;
-            hoi = MessageBox.Show("Do you want to delete this table?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (hoi == DialogResult.Yes)
-            {
-                MessageBox.Show(_iCustomerService.Delete(GetDataFromGui()));
-                LoadData();
-            }
-            else return;
-            
         }
-
         private void btn_clear_Click(object sender, EventArgs e)
         {
             txt_code.Text = null;

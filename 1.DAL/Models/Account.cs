@@ -1,3 +1,5 @@
+
+﻿using Microsoft.EntityFrameworkCore;
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,12 +14,13 @@ namespace _1.DAL.Models
     public class Account
     {
         [Key]
-        public int Id { get; set; }
-
-        [StringLength(50)]
-        public string UserName { get; set; }
-
-        [StringLength(50)]
-        public string PassWord { get; set; }
+        [StringLength(1000)]
+        public string Id { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string Username { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string Password { get; set; }
     }
 }
