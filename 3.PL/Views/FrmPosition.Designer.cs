@@ -38,8 +38,8 @@
             this.txt_search = new System.Windows.Forms.TextBox();
             this.dgrid_position = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rbtn_0 = new System.Windows.Forms.RadioButton();
-            this.rbtn_1 = new System.Windows.Forms.RadioButton();
+            this.rbtn_inactive = new System.Windows.Forms.RadioButton();
+            this.rbtn_active = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -152,8 +152,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.rbtn_0);
-            this.groupBox3.Controls.Add(this.rbtn_1);
+            this.groupBox3.Controls.Add(this.rbtn_inactive);
+            this.groupBox3.Controls.Add(this.rbtn_active);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
@@ -166,27 +166,27 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             // 
-            // rbtn_0
+            // rbtn_inactive
             // 
-            this.rbtn_0.AutoSize = true;
-            this.rbtn_0.Location = new System.Drawing.Point(214, 189);
-            this.rbtn_0.Name = "rbtn_0";
-            this.rbtn_0.Size = new System.Drawing.Size(38, 24);
-            this.rbtn_0.TabIndex = 28;
-            this.rbtn_0.TabStop = true;
-            this.rbtn_0.Text = "0";
-            this.rbtn_0.UseVisualStyleBackColor = true;
+            this.rbtn_inactive.AutoSize = true;
+            this.rbtn_inactive.Location = new System.Drawing.Point(207, 187);
+            this.rbtn_inactive.Name = "rbtn_inactive";
+            this.rbtn_inactive.Size = new System.Drawing.Size(81, 24);
+            this.rbtn_inactive.TabIndex = 28;
+            this.rbtn_inactive.TabStop = true;
+            this.rbtn_inactive.Text = "Inactive";
+            this.rbtn_inactive.UseVisualStyleBackColor = true;
             // 
-            // rbtn_1
+            // rbtn_active
             // 
-            this.rbtn_1.AutoSize = true;
-            this.rbtn_1.Location = new System.Drawing.Point(130, 187);
-            this.rbtn_1.Name = "rbtn_1";
-            this.rbtn_1.Size = new System.Drawing.Size(38, 24);
-            this.rbtn_1.TabIndex = 27;
-            this.rbtn_1.TabStop = true;
-            this.rbtn_1.Text = "1";
-            this.rbtn_1.UseVisualStyleBackColor = true;
+            this.rbtn_active.AutoSize = true;
+            this.rbtn_active.Location = new System.Drawing.Point(130, 187);
+            this.rbtn_active.Name = "rbtn_active";
+            this.rbtn_active.Size = new System.Drawing.Size(71, 24);
+            this.rbtn_active.TabIndex = 27;
+            this.rbtn_active.TabStop = true;
+            this.rbtn_active.Text = "Active";
+            this.rbtn_active.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -266,7 +266,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton rbtn_1;
-        private System.Windows.Forms.RadioButton rbtn_0;
+        private System.Windows.Forms.RadioButton rbtn_active;
+        private System.Windows.Forms.RadioButton rbtn_inactive;
     }
 }

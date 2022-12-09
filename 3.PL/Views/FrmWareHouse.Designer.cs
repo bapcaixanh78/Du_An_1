@@ -34,8 +34,8 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt_search = new System.Windows.Forms.TextBox();
+            this.rbtn_inactive = new System.Windows.Forms.RadioButton();
+            this.rbtn_active = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,10 +49,10 @@
             this.txt_city = new System.Windows.Forms.TextBox();
             this.txt_nation = new System.Windows.Forms.TextBox();
             this.txt_code = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgrid_warehouse = new System.Windows.Forms.DataGridView();
-            this.rbtn_1 = new System.Windows.Forms.RadioButton();
-            this.rbtn_0 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -118,8 +118,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.rbtn_0);
-            this.groupBox2.Controls.Add(this.rbtn_1);
+            this.groupBox2.Controls.Add(this.rbtn_inactive);
+            this.groupBox2.Controls.Add(this.rbtn_active);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
@@ -140,23 +140,27 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // label8
+            // rbtn_inactive
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(691, 26);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 20);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Search";
+            this.rbtn_inactive.AutoSize = true;
+            this.rbtn_inactive.Location = new System.Drawing.Point(424, 190);
+            this.rbtn_inactive.Name = "rbtn_inactive";
+            this.rbtn_inactive.Size = new System.Drawing.Size(81, 24);
+            this.rbtn_inactive.TabIndex = 22;
+            this.rbtn_inactive.TabStop = true;
+            this.rbtn_inactive.Text = "Inactive";
+            this.rbtn_inactive.UseVisualStyleBackColor = true;
             // 
-            // txt_search
+            // rbtn_active
             // 
-            this.txt_search.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txt_search.Location = new System.Drawing.Point(775, 23);
-            this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(214, 27);
-            this.txt_search.TabIndex = 14;
-            this.txt_search.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.rbtn_active.AutoSize = true;
+            this.rbtn_active.Location = new System.Drawing.Point(424, 160);
+            this.rbtn_active.Name = "rbtn_active";
+            this.rbtn_active.Size = new System.Drawing.Size(71, 24);
+            this.rbtn_active.TabIndex = 21;
+            this.rbtn_active.TabStop = true;
+            this.rbtn_active.Text = "Active";
+            this.rbtn_active.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -181,14 +185,14 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 256);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 20);
+            this.label5.Size = new System.Drawing.Size(62, 20);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Adress";
+            this.label5.Text = "Address";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(303, 195);
+            this.label4.Location = new System.Drawing.Point(332, 176);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 20);
             this.label4.TabIndex = 10;
@@ -197,7 +201,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(298, 99);
+            this.label3.Location = new System.Drawing.Point(327, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 20);
             this.label3.TabIndex = 9;
@@ -206,7 +210,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(298, 29);
+            this.label2.Location = new System.Drawing.Point(327, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 20);
             this.label2.TabIndex = 8;
@@ -263,6 +267,24 @@
             this.txt_code.Size = new System.Drawing.Size(125, 27);
             this.txt_code.TabIndex = 0;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(691, 26);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 20);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Search";
+            // 
+            // txt_search
+            // 
+            this.txt_search.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txt_search.Location = new System.Drawing.Point(775, 23);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(214, 27);
+            this.txt_search.TabIndex = 14;
+            this.txt_search.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txt_search);
@@ -286,28 +308,6 @@
             this.dgrid_warehouse.Size = new System.Drawing.Size(986, 198);
             this.dgrid_warehouse.TabIndex = 0;
             this.dgrid_warehouse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_warehouse_CellClick);
-            // 
-            // rbtn_1
-            // 
-            this.rbtn_1.AutoSize = true;
-            this.rbtn_1.Location = new System.Drawing.Point(424, 169);
-            this.rbtn_1.Name = "rbtn_1";
-            this.rbtn_1.Size = new System.Drawing.Size(38, 24);
-            this.rbtn_1.TabIndex = 21;
-            this.rbtn_1.TabStop = true;
-            this.rbtn_1.Text = "1";
-            this.rbtn_1.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_0
-            // 
-            this.rbtn_0.AutoSize = true;
-            this.rbtn_0.Location = new System.Drawing.Point(424, 199);
-            this.rbtn_0.Name = "rbtn_0";
-            this.rbtn_0.Size = new System.Drawing.Size(38, 24);
-            this.rbtn_0.TabIndex = 22;
-            this.rbtn_0.TabStop = true;
-            this.rbtn_0.Text = "0";
-            this.rbtn_0.UseVisualStyleBackColor = true;
             // 
             // FrmWareHouse
             // 
@@ -354,7 +354,7 @@
         private System.Windows.Forms.TextBox txt_nation;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RadioButton rbtn_1;
-        private System.Windows.Forms.RadioButton rbtn_0;
+        private System.Windows.Forms.RadioButton rbtn_active;
+        private System.Windows.Forms.RadioButton rbtn_inactive;
     }
 }

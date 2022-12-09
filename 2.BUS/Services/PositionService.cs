@@ -62,6 +62,16 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.Code.ToLower().StartsWith(input.ToLower()) || c.Name.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
+        public string Status(PositionView obj)
+        {
+            if (obj == null) return "Unsuccessful";
+            var position = _iPositionRepository.GetAll().FirstOrDefault(c => c.IdPosition == obj.IdPosition);
+            position.Status = 0;
+            if (_iPositionRepository.Update(position))
+                return "Successful";
+            return "Unsuccessful";
+        }
+
         public string Update(PositionView obj)
         {
             if (obj == null) return "Unsuccessful";

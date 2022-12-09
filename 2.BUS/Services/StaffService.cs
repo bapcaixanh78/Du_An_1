@@ -32,6 +32,7 @@ namespace _2.BUS.Services
                 IdWareHouse = obj.IdWareHouse,
                 Code = obj.Code,
                 Name = obj.Name,
+                Gender = obj.Gender,
                 PhoneNumber = obj.PhoneNumber,
                 Address = obj.Address,
                 BirthOfDate = obj.BirthOfDate,
@@ -65,6 +66,7 @@ namespace _2.BUS.Services
                     IdWareHouse = e.IdWareHouse,
                     Code = e.Code,
                     Name = e.Name,
+                    Gender = e.Gender,
                     PhoneNumber = e.PhoneNumber,
                     Address = e.Address,
                     BirthOfDate = e.BirthOfDate,
@@ -82,6 +84,16 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.Code.ToLower().StartsWith(input.ToLower()) || c.Name.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
+        public string Status(StaffView obj)
+        {
+            if (obj == null) return "Unsuccessful";
+            var staff = _iStaffRepository.GetAll().FirstOrDefault(c => c.IdStaff == obj.IdStaff);
+            staff.Status = 0;
+            if (_iStaffRepository.Update(staff))
+                return "Successful";
+            return "Unsuccessful";
+        }
+
         public string Update(StaffView obj)
         {
             if (obj == null) return "Unsuccessful";
@@ -89,6 +101,7 @@ namespace _2.BUS.Services
             staff.IdStaff = obj.IdStaff;
             staff.Code = obj.Code;
             staff.Name = obj.Name;
+            staff.Gender = obj.Gender;
             staff.PhoneNumber = obj.PhoneNumber;
             staff.Address = obj.Address;
             staff.BirthOfDate = obj.BirthOfDate;

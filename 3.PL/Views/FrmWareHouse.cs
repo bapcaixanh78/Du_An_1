@@ -22,6 +22,7 @@ namespace _3.PL.Views
             InitializeComponent();
             _iwarehouseservice = new WareHouseService();
             LoadData();
+            rbtn_active.Checked = true;
         }
         private void LoadData()
         {
@@ -33,7 +34,7 @@ namespace _3.PL.Views
             dgrid_warehouse.Columns[2].Name = "Code";
             dgrid_warehouse.Columns[3].Name = "Name";
             dgrid_warehouse.Columns[4].Name = "Phone Number";
-            dgrid_warehouse.Columns[5].Name = "Adress";
+            dgrid_warehouse.Columns[5].Name = "Address";
             dgrid_warehouse.Columns[6].Name = "City";
             dgrid_warehouse.Columns[7].Name = "Nation";
             dgrid_warehouse.Columns[8].Name = "Status";
@@ -75,7 +76,7 @@ namespace _3.PL.Views
                 wrhview.Address = txt_adress.Text;
                 wrhview.City = txt_city.Text;
                 wrhview.Nation = txt_nation.Text;
-                wrhview.Status = rbtn_1.Checked ? 1 : 0;
+                wrhview.Status = rbtn_active.Checked ? 1 : 0;
             };
             return wrhview;
         }
@@ -129,11 +130,11 @@ namespace _3.PL.Views
             txt_nation.Text = obj.Nation;
             if(obj.Status == 1)
             {
-                rbtn_1.Checked = true;
+                rbtn_active.Checked = true;
             }
             else
             {
-                rbtn_0.Checked = true;
+                rbtn_inactive.Checked = true;
             }
         }
 
@@ -142,8 +143,14 @@ namespace _3.PL.Views
             var rerand = MessageBox.Show("You may want to delete?", "Notify !", MessageBoxButtons.YesNo);
             if (rerand == DialogResult.Yes)
             {
-                MessageBox.Show(_iwarehouseservice.Delete(GetDataFrom()));
+                MessageBox.Show(_iwarehouseservice.Status(GetDataFrom()));
                 LoadData();
+                txt_adress.Text = null;
+                txt_city.Text = null;
+                txt_code.Text = null;
+                txt_name.Text = null;
+                txt_nation.Text = null;
+                txt_phone.Text = null;
             }
             else
             {
