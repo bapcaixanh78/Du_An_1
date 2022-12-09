@@ -68,7 +68,7 @@ namespace _3.PL.Views
             dgrid_staff.Rows.Clear();
             foreach (var x in _istaffService.GetAll())
             {
-                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status, x.NamePosition, x.NameWareHouse, x.Gender);
+                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status ==1?"Active":"Inactive", x.NamePosition, x.NameWareHouse, x.Gender);
             }
         }
         private void LoadSearch(List<StaffView> lst)
@@ -91,7 +91,7 @@ namespace _3.PL.Views
             dgrid_staff.Rows.Clear();
             foreach (var x in lst)
             {
-                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status, x.NamePosition, x.NameWareHouse,x.Gender);
+                dgrid_staff.Rows.Add(stt++, x.IdStaff, x.Code, x.Name, x.PhoneNumber, x.Address, x.BirthOfDate, x.Wage, x.Status == 1 ? "Active" : "Inactive", x.NamePosition, x.NameWareHouse,x.Gender);
             }
         }
         private StaffView GetDataFrom()
@@ -178,7 +178,7 @@ namespace _3.PL.Views
             var rerand = MessageBox.Show("You may want to delete?", "Notify !", MessageBoxButtons.YesNo);
             if (rerand == DialogResult.Yes)
             {
-                MessageBox.Show(_istaffService.Status(GetDataFrom()));
+                MessageBox.Show(_istaffService.Delete(GetDataFrom()));
                 LoadData();
             }
             else

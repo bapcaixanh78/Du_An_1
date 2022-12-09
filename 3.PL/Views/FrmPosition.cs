@@ -37,7 +37,7 @@ namespace _3.PL.Views
             dgrid_position.Rows.Clear();
             foreach(var x in _ipositionService.GetAll())
             {
-                dgrid_position.Rows.Add(stt++, x.IdPosition, x.Code, x.Name, x.Status);
+                dgrid_position.Rows.Add(stt++, x.IdPosition, x.Code, x.Name, x.Status == 1 ? "Active":"Inactive");
             }
         }
         private void LoadSearch(List<PositionView> lst)
@@ -53,7 +53,7 @@ namespace _3.PL.Views
             dgrid_position.Rows.Clear();
             foreach (var x in lst)
             {
-                dgrid_position.Rows.Add(stt++, x.IdPosition, x.Code, x.Name, x.Status);
+                dgrid_position.Rows.Add(stt++, x.IdPosition, x.Code, x.Name, x.Status == 1 ? "Active" : "Inactive");
             }
         }
         private PositionView GetDataFrom()
@@ -126,10 +126,8 @@ namespace _3.PL.Views
             var rerand = MessageBox.Show("You may want to delete?", "Notify !", MessageBoxButtons.YesNo);
             if (rerand == DialogResult.Yes)
             {
-                MessageBox.Show(_ipositionService.Status(GetDataFrom()));
+                MessageBox.Show(_ipositionService.Delete(GetDataFrom()));
                 LoadData();
-                txt_code.Text = null;
-                txt_name.Text = null;
             }
             else
             {

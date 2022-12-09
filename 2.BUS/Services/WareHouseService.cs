@@ -40,7 +40,8 @@ namespace _2.BUS.Services
         {
             if (obj == null) return "Unsuccessful";
             var warehouse = _iWHRepository.GetAll().FirstOrDefault(c => c.IdWarehouse == obj.IdWarehouse);
-            if (_iWHRepository.Delete(warehouse))
+            warehouse.Status = 0;
+            if (_iWHRepository.Update(warehouse))
                 return "Successful";
             return "Unsuccessful";
         }
@@ -69,16 +70,6 @@ namespace _2.BUS.Services
         {
 
             return GetAll().Where(c => c.Code.ToLower().StartsWith(input.ToLower()) || c.Name.ToLower().StartsWith(input.ToLower())).ToList();
-        }
-
-        public string Status(WareHouseView obj)
-        {
-            if (obj == null) return "Unsuccessful";
-            var warehouse = _iWHRepository.GetAll().FirstOrDefault(c => c.IdWarehouse == obj.IdWarehouse);
-            warehouse.Status = 0;
-            if (_iWHRepository.Update(warehouse))
-                return "Successful";
-            return "Unsuccessful";
         }
             public string Update(WareHouseView obj)
         {

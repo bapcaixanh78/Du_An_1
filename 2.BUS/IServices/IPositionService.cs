@@ -12,7 +12,6 @@ namespace _2.BUS.IServices
         string Add(PositionView obj);
         string Update(PositionView obj);
         string Delete(PositionView obj);
-        string Status(PositionView obj);
         List<PositionView> GetAll();
         List<PositionView> Search(string input);
 

@@ -47,7 +47,8 @@ namespace _2.BUS.Services
         {
             if (obj == null) return "Unsuccessful";
             var staff = _iStaffRepository.GetAll().FirstOrDefault(c => c.IdStaff == obj.IdStaff);
-            if (_iStaffRepository.Delete(staff))
+            staff.Status = 0;
+            if (_iStaffRepository.Update(staff))
                 return "Successful";
             return "Unsuccessful";
         }
@@ -84,15 +85,6 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.Code.ToLower().StartsWith(input.ToLower()) || c.Name.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public string Status(StaffView obj)
-        {
-            if (obj == null) return "Unsuccessful";
-            var staff = _iStaffRepository.GetAll().FirstOrDefault(c => c.IdStaff == obj.IdStaff);
-            staff.Status = 0;
-            if (_iStaffRepository.Update(staff))
-                return "Successful";
-            return "Unsuccessful";
-        }
 
         public string Update(StaffView obj)
         {
