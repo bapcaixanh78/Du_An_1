@@ -10,9 +10,7 @@ namespace _1.DAL.IRepositories
     public interface IMaterialRepository
     {
         bool Add(Material obj);
-
         bool Update(Material obj);
-
         bool Delete(Material obj);
         Material GetById(Guid id);
         List<Material> GetAll();

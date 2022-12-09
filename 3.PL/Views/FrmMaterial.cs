@@ -38,7 +38,7 @@ namespace _3.PL.Views
             lstmaterial = lstmaterial.Where(x => x.Code.ToLower().Contains(txt_search.Text.ToLower()) || x.Name.ToLower().Contains(txt_search.Text.ToLower())).ToList();
             foreach (var x in lstmaterial)
             {
-                dgrid_material.Rows.Add(stt++,x.IdMaterial, x.Code, x.Name, x.Status == 1 ? "Activate" : "Inactive");
+                dgrid_material.Rows.Add(stt++,x.IdMaterial, x.Code, x.Name, x.Status == 1 ? "In Stock" : "Out Stock");
             }
         }
 
@@ -124,12 +124,12 @@ namespace _3.PL.Views
             var temp = _IMaterialService.GetAll().FirstOrDefault(c => c.IdMaterial == _id);
             txt_code.Text = temp.Code;
             txt_name.Text = temp.Name;
-            if (Convert.ToString(dgrid_material.Rows[rowIndex].Cells[3].Value) == "Activate")
+            if (Convert.ToString(dgrid_material.Rows[rowIndex].Cells[3].Value) == "In Stock")
             {
                 rbtn_ch.Checked = false;
                 rbtn_hh.Checked = true;
             }
-            if (Convert.ToString(dgrid_material.Rows[rowIndex].Cells[3].Value) == "Inactive")
+            if (Convert.ToString(dgrid_material.Rows[rowIndex].Cells[3].Value) == "Out Stock")
             {
                 rbtn_ch.Checked = true;
                 rbtn_hh.Checked = false;

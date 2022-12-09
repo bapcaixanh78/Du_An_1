@@ -137,12 +137,10 @@ namespace _3.PL.Views
         private void dgrid_materialdetail_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            //if (rowIndex == -1 || _iMTRLDetailService.GetAll().Count == 0) return;
-            //_id = _iMTRLDetailService.GetAll().FirstOrDefault(c => c.IdMDetail == Guid.Parse(dgrid_materialdetail.Rows[rowIndex].Cells[0].Value.ToString())).IdMDetail;
+           
             if (rowIndex == _iMTRLDetailService.GetAll().Count || rowIndex == -1) return;
             _id = Guid.Parse(dgrid_materialdetail.Rows[rowIndex].Cells[1].Value.ToString());
-            //if (rowIndex == _iMTRLDetailService.GetAll().Count) return;
-            //_id = Guid.Parse(dgrid_materialdetail.Rows[rowIndex].Cells[1].Value.ToString());
+          
             var temp = _iMTRLDetailService.GetAll().FirstOrDefault(c => c.IdMDetail == _id);
             cmb_material.SelectedItem = temp.NameMaterial;
             cmb_producer.SelectedItem = temp.NameProducer;
