@@ -12,7 +12,6 @@ namespace _2.BUS.IServices
         string Add(ProducerView obj);
         string Update(ProducerView obj);
         string Delete(ProducerView obj);
-        string Status(ProducerView obj);
         List<ProducerView> GetAll();
         List<ProducerView> Search(string input);
 

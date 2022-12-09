@@ -13,7 +13,6 @@ namespace _2.BUS.IServices
         string Add(WareHouseView obj);
         string Update(WareHouseView obj);
         string Delete(WareHouseView obj);
-        string Status(WareHouseView obj);
         List<WareHouseView> Search(string input);
         List<WareHouseView> GetAll();
     }

@@ -41,7 +41,7 @@ namespace _3.PL.Views
             dgrid_producer.Rows.Clear();
             foreach (var x in _iproducerService.GetAll())
             {
-                dgrid_producer.Rows.Add(stt++, x.IdProducer, x.Code, x.Name,x.PhoneNumber,x.Address,x.City,x.Nation,x.Status);
+                dgrid_producer.Rows.Add(stt++, x.IdProducer, x.Code, x.Name,x.PhoneNumber,x.Address,x.City,x.Nation,x.Status == 1?"Active":"Inactive");
             }
         }
         private void LoadSearch(List<ProducerView> lst)
@@ -61,7 +61,7 @@ namespace _3.PL.Views
             dgrid_producer.Rows.Clear();
             foreach (var x in lst)
             {
-                dgrid_producer.Rows.Add(stt++, x.IdProducer, x.Code, x.Name, x.PhoneNumber, x.Address, x.City, x.Nation, x.Status);
+                dgrid_producer.Rows.Add(stt++, x.IdProducer, x.Code, x.Name, x.PhoneNumber, x.Address, x.City, x.Nation, x.Status == 1 ? "Active" : "Inactive");
             }
         }
         private ProducerView GetDataFrom()
@@ -143,15 +143,8 @@ namespace _3.PL.Views
             var rerand = MessageBox.Show("You may want to delete?", "Notify !", MessageBoxButtons.YesNo);
             if (rerand == DialogResult.Yes)
             {
-                MessageBox.Show(_iproducerService.Status(GetDataFrom()));
+                MessageBox.Show(_iproducerService.Delete(GetDataFrom()));
                 LoadData(); 
-                txt_code.Text = null;
-                txt_adress.Text = null;
-                txt_city.Text = null;
-                txt_code.Text = null;
-                txt_name.Text = null;
-                txt_nation.Text = null;
-                txt_phone.Text = null;
             }
             else
             {

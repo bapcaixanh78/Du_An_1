@@ -29,5 +29,6 @@ namespace _2.BUS.ViewModels
         public Guid IdWareHouse { get; set; }
         public string NamePosition { get; set; }
         public string NameWareHouse { get; set; }
+        public string Gender { get; set; }
     }
 }

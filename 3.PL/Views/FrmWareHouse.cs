@@ -41,7 +41,7 @@ namespace _3.PL.Views
             dgrid_warehouse.Rows.Clear();
             foreach (var x in _iwarehouseservice.GetAll())
             {
-                dgrid_warehouse.Rows.Add(stt++, x.IdWarehouse, x.Code, x.Name, x.PhoneNumber, x.Address, x.City, x.Nation, x.Status);
+                dgrid_warehouse.Rows.Add(stt++, x.IdWarehouse, x.Code, x.Name, x.PhoneNumber, x.Address, x.City, x.Nation, x.Status == 1 ?"Active":"Inactive");
             }
         }
 
@@ -62,7 +62,7 @@ namespace _3.PL.Views
             dgrid_warehouse.Rows.Clear();
             foreach (var x in lst)
             {
-                dgrid_warehouse.Rows.Add(stt++, x.IdWarehouse, x.Code, x.Name, x.PhoneNumber, x.Address, x.City, x.Nation, x.Status);
+                dgrid_warehouse.Rows.Add(stt++, x.IdWarehouse, x.Code, x.Name, x.PhoneNumber, x.Address, x.City, x.Nation, x.Status == 1 ? "Active" : "Inactive");
             }
         }
         private WareHouseView GetDataFrom()
@@ -143,14 +143,8 @@ namespace _3.PL.Views
             var rerand = MessageBox.Show("You may want to delete?", "Notify !", MessageBoxButtons.YesNo);
             if (rerand == DialogResult.Yes)
             {
-                MessageBox.Show(_iwarehouseservice.Status(GetDataFrom()));
+                MessageBox.Show(_iwarehouseservice.Delete(GetDataFrom()));
                 LoadData();
-                txt_adress.Text = null;
-                txt_city.Text = null;
-                txt_code.Text = null;
-                txt_name.Text = null;
-                txt_nation.Text = null;
-                txt_phone.Text = null;
             }
             else
             {
